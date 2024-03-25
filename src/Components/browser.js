@@ -16,21 +16,21 @@ const Browse = ()=>{
     const nowTop_RatedApi=useNowTop()
     const nowUp_ComingApi=useUp_coming()
     const [TrailerKey,setTrailerKey]=useState()
-    // console.log(TrailerKey)
+    // console.log(TrailerKey,"Tkey")
  
 
 
     
+    const getData= async()=>{
+        const ApiLink="https://api.themoviedb.org/3/movie/"+nowPlayingApi?.results[0]?.id+"/videos?language=en-US"
+        const Api = await fetch(ApiLink, options)
+        const Json = await Api.json()
+        // console.log(Json,"Json")
+        const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
+        const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
+        setTrailerKey(Trailer.key)
+    }
     useEffect(()=>{getData()},[])
-const getData= async()=>{
-    const ApiLink="https://api.themoviedb.org/3/movie/"+nowPlayingApi?.results[0]?.id+"/videos?language=en-US"
-    const Api = await fetch(ApiLink, options)
-    const Json = await Api.json()
-    console.log(Json,"Json")
-    const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-    const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
-    setTrailerKey(Trailer.key)
-}
 // 
     return(
 <div className="relative w-[100%]">
