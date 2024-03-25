@@ -34,7 +34,7 @@ if(!Movie_dataBySearch) return null
                     <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none"/>
                     <button className="px-4 py-2 text-white text-md bg-red-600 rounded-r-md" onClick={()=>setSearch(searchText.current.value)}>Search</button>
                    </form>
-                   <div className="border border-red-700 w-6/12 h-[50%] flex flex-col py-4 px-2  justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-hidden ">
+                   <div className="border border-red-700 w-6/12 h-[60%] flex flex-col p-[0.5rem]  pt-[1rem] justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-y-scroll ">
                  
                  {
                     Movie_dataBySearch.length === 0  ? <div className=" m-2 flex flex-col items-center p-1">
@@ -44,15 +44,16 @@ if(!Movie_dataBySearch) return null
                     {/* </div> */}
                     </div>
                :
-                    Movie_dataBySearch.map((data)=><div className="border border-red-500 m-2 flex justify-around">
-                    <img src={POSTER_API+data.poster_path} className="w-[150px] h-[200px]" />
+                    Movie_dataBySearch.map((data)=><div className="border border-red-500 mt-[0.5rem] flex justify-around">
+                    <img src={POSTER_API+data?.poster_path} className="w-[150px] h-[200px]" />
                     <div className="border border-red-800 p-2">
-                    <p className="text-white text-2xl">{data.title}</p>
-                    <p className="text-[0.6rem] text-white">{data.overview}</p>
+                    <p className="text-white text-2xl">{data?.name}</p>
+                    <p className="text-[0.6rem] text-white">{data?.overview}</p>
                     <button className="rounded-sm text-white bg-red-600 px-3 py-2 m-2">Watch Now</button>
                     </div>
                     </div>)
                    }
+                  
                    </div>
                    {/* <div className="bg-black h-[50rem]"></div> */}
             </div>
