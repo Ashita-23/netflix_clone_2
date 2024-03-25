@@ -5,6 +5,7 @@ import FormToogle from "./formToggle"
 import UserSlice from "./userSlice";
 import movieId from "./movieId";
 import showMovie from "./showMovie";
+import TvSearchToggle from "./tvSearchToggle";
 
 
 const NetFlixStore = configureStore({
@@ -15,6 +16,7 @@ Form_Toogle:FormToogle,
 User_Slice:UserSlice,
 Movie_Id:movieId,
 Show_Movie:showMovie,
+Tv_SearchToggle:TvSearchToggle,
     }
 })
 

@@ -47,7 +47,7 @@ if(!Movie_dataBySearch) return null
                     <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none"/>
                     <button className="px-4 py-2 text-white text-md bg-red-600 rounded-r-md" onClick={()=>setSearch(searchText.current.value)}>Search</button>
                    </form>
-                   <div className="border border-red-700 w-6/12 flex flex-col py-4 px-2  justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md">
+                   <div className="border border-red-700 w-6/12 h-[50%] flex flex-col py-4 px-2  justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-hidden ">
                  
 
                  {
@@ -68,7 +68,7 @@ if(!Movie_dataBySearch) return null
                     </div>)
                    }
                    </div>
-                   <div className="bg-black h-[50rem]"></div>
+                   {/* <div className="bg-black h-[50rem]"></div> */}
             </div>
         </>
     )

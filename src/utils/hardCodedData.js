@@ -14,6 +14,20 @@ export const videoCardsTitle=[
         titleText:"Up Coming"
     },
 ]
+export const TvCardsTitle=[
+    {   key:"100",
+        titleText:" Series"
+    },
+    {     key:"200",
+        titleText:" On Air Series "
+    },
+    {     key:"300",
+        titleText:"Populer Series"
+    },
+    {      key:"400",
+        titleText:"Top  Series "
+    },
+]
 
 export const footerCardsData = [
     {

@@ -69,45 +69,46 @@ const SignIn = () => {
 
     }
 
-    return   (<>
+    return   (<div className="relative border border-red-700 h-[100vh] w-full overflow-scroll ">
       
-         <nav className="w-[100%]  h-[4rem] px-4 absolute bg-gradient-to-b from-black z-20 flex justify-between items-center"> 
+         <nav className="w-[100%]  h-[4rem] px-4 bg-gradient-to-b from-black z-20 flex justify-between items-center fixed"> 
         <span className="text-red-600 text-center ml-[0.5rem]  font-bold text-[2rem] tracking-wider sm: md:">CHALCHITRA</span> 
-         <button  className="text-white bg-slate-400 px-4 py-1 rounded-md" onClick={()=>dispatch(AddSignIn(true))}> <i className="fa-regular fa-face-smile"></i> {IsIN_UP?" Sign in":"Sign up"}</button> </nav>  
+         <button  className="text-white bg-slate-400 px-4 py-1 rounded-md" onClick={()=>dispatch(AddSignIn(true))}> <i className="fa-regular fa-face-smile"></i> {IsIN_UP?" Sign in":"Sign up"}</button> 
+         </nav>  
          <div className="w-[100%] h-[auto]  border border-gray-500">
             <img src={netflixCover}  alt="background image" className="w-screen "/>
-            <div className="border border-green-600 mt-[-40%] ml-[40%] bg-black  absolute py-[3rem] px-[1.5rem] rounded-md"> 
+            <div className="border border-green-600 mt-[-40%] ml-[40%] bg-black  absolute py-[3rem] px-[1.5rem] opacity-90"> 
             {/* <h1>Unlimited movies, TV shows and more</h1> */}
-               {  IsIN_UP ? <form onSubmit={(e)=>e.preventDefault()} className="border border-red-600  w-[20rem] px-4 py-2 rounded-md bg-black flex flex-col justify-evenly item-center  ">
+               {  IsIN_UP ? <form onSubmit={(e)=>e.preventDefault()} className="border border-red-600  w-[20rem] px-4 py-2  bg-black flex flex-col justify-evenly item-center  ">
                    <p className="text-2xl font-bold text-white my-2">Sign Up</p>
-                    <input type="text" ref={name} placeholder="Enter Your Name.." className="text-md rounded-md p-2 my-2"/>
-                    <input type="email" ref={email} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2"/>
-                    <input  type="password" autoComplete="on" ref={password} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2"/>
+                    <input type="text" ref={name} placeholder="Enter Your Name.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
+                    <input type="email" ref={email} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
+                    <input  type="password" autoComplete="on" ref={password} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
                     <p className="text-[0.8rem] text-red-500 p-1 m-1">{VSU_Message}</p>
-                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2" onClick={()=>SignUpHandler()}>Sign up</button>
+                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2" onClick={()=>SignUpHandler()}>Sign Up Now</button>
                 </form>:
-                <form  onSubmit={(e)=>e.preventDefault()}  className="border border-red-600  w-[20rem] px-4 py-2 rounded-md bg-black flex flex-col justify-evenly item-center  ">
+                <form  onSubmit={(e)=>e.preventDefault()}  className="border border-red-600  w-[20rem] px-4 py-2  bg-black flex flex-col justify-evenly item-center  ">
                   <p className="text-2xl font-bold text-white my-2">Sign In</p>
-                    <input type="email" ref={INemail} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2"/>
-                    <input  type="password" autoComplete="on" ref={INpassword} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2"/>
+                    <input type="email" ref={INemail} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
+                    <input  type="password" autoComplete="on" ref={INpassword} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
                     <p className="text-[0.8rem] text-red-500 p-1 m-1">{VSI_Message}</p>
 
-                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2" onClick={()=>SignInHandler()}>Sign in</button>
+                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2" onClick={()=>SignInHandler()}>Sign In  </button>
                 </form> }
 {  IsIN_UP   ? <div className="text-white px-6 py-0  text-left"><span className="text-sm">Already registered? </span>
             <button className="text-red-500 text-sm" onClick={()=>{dispatch(AddSignIn(false)) }}> Sign In Now.</button></div>:
             <div className="text-white px-6 py-0  text-left"><span className="text-sm">If you are not registered? </span>
-            <button className="text-red-500 text-sm" onClick={()=>dispatch(AddSignIn(true))}> Sign up</button></div>
+            <button className="text-red-500 text-sm" onClick={()=>dispatch(AddSignIn(true))}> Sign Up Now.</button></div>
             }
             </div> 
 
-          <div className=" bg-black p-6">
+          <div className=" bg-black p-6  ">
             <FooterCards/>
             <FooterQues/>
             <div className="text-white flex justify-center p-1 mt-[3.5rem]"><p className="text-sm  ">Netflix Clone {"( CHALCHITRA )"} <i className="fa-regular fa-copyright text-sm "></i> 2024</p></div>
           </div>
         </div>
-       </>)
+       </div>)
 }
 
 export default SignIn

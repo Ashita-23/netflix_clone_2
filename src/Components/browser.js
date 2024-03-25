@@ -1,9 +1,10 @@
 
-import { useEffect, useState ,useSelector} from "react"
+import { useSelector} from "react"
 import { useNowPlay , useNowPopuler,useNowTop,useUp_coming} from "../utils/useProjectApi"
 import {videoCardsTitle} from "../utils/hardCodedData"
 import NowPlayingCards from "./videoCards"
-import { options } from "../utils/apiOptions"
+// import { options } from "../utils/apiOptions"
+import BackdropCard from "./backbrop"
 // import Movies from "./Movie"
 
 
@@ -15,25 +16,26 @@ const Browse = ()=>{
     const nowPopulerApi=useNowPopuler()
     const nowTop_RatedApi=useNowTop()
     const nowUp_ComingApi=useUp_coming()
-    const [TrailerKey,setTrailerKey]=useState()
+    // const [TrailerKey,setTrailerKey]=useState()
     // console.log(TrailerKey,"Tkey")
- 
+
 
 
     
-    const getData= async()=>{
-        const ApiLink="https://api.themoviedb.org/3/movie/"+nowPlayingApi?.results[0]?.id+"/videos?language=en-US"
-        const Api = await fetch(ApiLink, options)
-        const Json = await Api.json()
-        // console.log(Json,"Json")
-        const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-        const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
-        setTrailerKey(Trailer.key)
-    }
-    useEffect(()=>{getData()},[])
+    // const getData= async()=>{
+    //     const ApiLink="https://api.themoviedb.org/3/movie/"+nowPlayingApi?.results[0]?.id+"/videos?language=en-US"
+    //     const Api = await fetch(ApiLink, options)
+    //     const Json = await Api.json()
+    //     // console.log(Json,"Json")
+    //     const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
+    //     const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
+    //     setTrailerKey(Trailer.key)
+    // }
+    // useEffect(()=>{getData()},[])
 // 
     return(
 <div className="relative w-[100%]">
+{/* <div>
     <iframe className=" w-screen aspect-video  " src={"https://www.youtube.com/embed/"+TrailerKey+"?&autoplay=1&mute=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowFullScreen></iframe>
@@ -44,6 +46,8 @@ const Browse = ()=>{
         <button className="px-8 py-2 text-md font-medium opacity-75 text-black  bg-white cursor-pointer rounded-sm mr-1 hover:bg-slate-300 "><i className="fa-solid fa-play"></i> Play</button>
         <button className="px-8 py-2 text-md text-white opacity-75 bg-slate-800 cursor-pointer rounded-sm hover:bg-slate-500 "> <i className="fa-solid fa-circle-info"></i> More Info</button>
     </div> </div>
+    </div> */}
+    <BackdropCard backdropData={ nowPlayingApi}/>
      <div className="border bg-black  ">
     <div className="p-2 -mt-[14%] z-40 absolute">
                 <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results.id}></NowPlayingCards></div>

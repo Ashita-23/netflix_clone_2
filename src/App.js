@@ -3,6 +3,7 @@ import {  RouterProvider, createBrowserRouter} from 'react-router-dom';
 import SignIn from './Components/sign_in';
 // import Navigation from './Components/Browse_Components/header';
 import BrowseComponent from './BrowseComponents';
+import TvComponets from './TvComponents';
 
 // import Navigation from './Components/Browse_Components/header';
 
@@ -18,6 +19,10 @@ const AppRouter = createBrowserRouter([
    {
     path:"/browse",
     element:<BrowseComponent/>
+   },
+   {
+    path:"/Tv",
+    element:<TvComponets/>
    }
 ])
 
