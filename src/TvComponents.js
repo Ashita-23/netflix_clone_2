@@ -12,7 +12,7 @@ console.log(IsTVCard,"IsTvshow")
      <TvNav></TvNav>
          {
             IsTVCard? <Tv_Shows></Tv_Shows> : <TvSearchPage></TvSearchPage>
-        } *
+        } 
     </div>)
 }
 

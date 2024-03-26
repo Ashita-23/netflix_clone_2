@@ -11,6 +11,7 @@ const TvSearchPage = ()=>{
 const searchText = useRef()
 
 const [search,setSearch]=useState()
+console.log(search,"stext")
 const [Movie_dataBySearch,setMovie_dataBySearch]=useState()
 
  useEffect(()=>{
@@ -27,14 +28,13 @@ const getData = async ()=>{
 }
 
 if(!Movie_dataBySearch) return null
-    return(  <>
-            <div>
+    return(  <div>
                     <img alt="Cover" src={netflixCover} className="w-screen"></img>
                    <form onSubmit={(e)=>e.preventDefault()} className=" w-6/12 flex py-4 px-2 items-center justify-center absolute -mt-[45%] ml-[18%]  bg-black rounded-md ">
                     <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none"/>
                     <button className="px-4 py-2 text-white text-md bg-red-600 rounded-r-md" onClick={()=>setSearch(searchText.current.value)}>Search</button>
                    </form>
-                   <div className="border border-red-700 w-6/12 h-[60%] flex flex-col p-[0.5rem]  pt-[1rem] justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-y-scroll ">
+              {!search ? "": <div className="border border-red-700 w-6/12 h-[60%] flex flex-col p-[0.5rem]  pt-[1rem] justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-y-scroll ">
                  
                  {
                     Movie_dataBySearch.length === 0  ? <div className=" m-2 flex flex-col items-center p-1">
@@ -54,10 +54,9 @@ if(!Movie_dataBySearch) return null
                     </div>)
                    }
                   
-                   </div>
-                   {/* <div className="bg-black h-[50rem]"></div> */}
+                   </div>}
             </div>
-        </>
+        
     )
 }
 
