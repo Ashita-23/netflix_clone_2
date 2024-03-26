@@ -25,22 +25,7 @@ const getData = async ()=>{
 }
 
 if(!Movie_dataBySearch) return null
-// const SearchHandler= async ()=>{
-// console.log(searchText.current.value,"search text")
-
-// const searchQuery = "Act as a Movie Reconmmendation system and suggest some movies for the qusery:"+
-// searchText.current.value+"only give me name of 5 movies, comma seperated like the example result given ahead. Example : Gadar, Golmaal , Shole, Kio mil gaya, Jai ho"
-//     const chatCompletion = await openai.chat.completions.create({
-//       messages: [{ role: 'user', content: searchQuery }],
-//       model: 'gpt-3.5-turbo',
-//     });
-
-//     console.log(chatCompletion.choices,"chat gpt text")
-  
-// }onClick={()=>SearchHandler()}
-
-    return(
-        <>
+    return(  <>
             <div>
                     <img alt="Cover" src={netflixCover} className="w-screen"></img>
                    <form onSubmit={(e)=>e.preventDefault()} className=" w-6/12 flex py-4 px-2 items-center justify-center absolute -mt-[45%] ml-[18%]  bg-black rounded-md ">
@@ -49,7 +34,6 @@ if(!Movie_dataBySearch) return null
                    </form>
                    <div className="border border-red-700 w-6/12 h-[50%] flex flex-col py-4 px-2  justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-hidden ">
                  
-
                  {
                     Movie_dataBySearch.length === 0  ? <div className=" m-2 flex flex-col items-center p-1">
                     <img src={"https://img.freepik.com/premium-photo/cute-puppy-small-miniature-golden-doodle-dog-animal-picture-ai-generated-image_210643-1624.jpg"} className="w-[200px] h-[200px]" />
@@ -62,7 +46,7 @@ if(!Movie_dataBySearch) return null
                     <img src={POSTER_API+data.poster_path} className="w-[150px] h-[200px]" />
                     <div className="border border-red-800 p-2">
                     <p className="text-white text-2xl">{data.title}</p>
-                    <p className="text-[0.6rem] text-white">{data.overview}</p>
+                    <p className="text-[0.6rem] text-white truncate">{data.overview}</p>
                     <button className="rounded-sm text-white bg-red-600 px-3 py-2 m-2">Watch Now</button>
                     </div>
                     </div>)

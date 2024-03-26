@@ -5,7 +5,7 @@ import {videoCardsTitle} from "../utils/hardCodedData"
 import NowPlayingCards from "./videoCards"
 // import { options } from "../utils/apiOptions"
 import BackdropCard from "./backbrop"
-// import Movies from "./Movie"
+import Movies from "./Movies"
 
 
 
@@ -33,8 +33,8 @@ const Browse = ()=>{
     // }
     // useEffect(()=>{getData()},[])
 // 
-    return(
-<div className="relative w-[100%]">
+    return( <>
+<div className="relative w-[100%] h-[100vh] overflow-scroll">
 {/* <div>
     <iframe className=" w-screen aspect-video  " src={"https://www.youtube.com/embed/"+TrailerKey+"?&autoplay=1&mute=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -49,22 +49,25 @@ const Browse = ()=>{
     </div> */}
     <BackdropCard backdropData={ nowPlayingApi}/>
      <div className="border bg-black  ">
-    <div className="p-2 -mt-[14%] z-40 absolute">
+    <div className="p-2 -mt-[14%] z-30 absolute">
                 <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results.id}></NowPlayingCards></div>
-               <div className=" mt-[7rem]">
-               <NowPlayingCards  NowData={ nowPopulerApi?.results} titleText={videoCardsTitle[1]} key={nowPopulerApi?.results.id} ></NowPlayingCards>
+            <div className=" mt-[7rem] relative">
+               {/* <NowPlayingCards  NowData={ nowPopulerApi?.results} titleText={videoCardsTitle[1]} key={nowPopulerApi?.results.id} ></NowPlayingCards> */}
                <NowPlayingCards  NowData={nowTop_RatedApi?.results} titleText={videoCardsTitle[2]} key={nowTop_RatedApi?.results.id}></NowPlayingCards>
-               <NowPlayingCards  NowData={nowUp_ComingApi?.results} titleText={videoCardsTitle[3]} key={nowUp_ComingApi?.results.id}></NowPlayingCards></div> 
+               <NowPlayingCards  NowData={nowUp_ComingApi?.results} titleText={videoCardsTitle[3]} key={nowUp_ComingApi?.results.id}></NowPlayingCards>
+            </div> 
+   
+   
 
-    </div>  
-{/*    
-    {
-            !Show_Movie ?  <div className="border border-red-700 h-screen  bg-black backdrop-blur-sm -mt-[80%] flex justify-center items-center">
-            <Movies/>
-        </div> :" "
-        }  */}
+   
+        </div> 
+            {/* <div className="border border-red-700 absolute -mt-[80%] z-[100]" ></div> */}
+
 </div>
-    )
+  <div className="border border-red-700 h-[auto] p-10 w-[full]sticky bg-black backdrop-blur-sm -mt-[45%] flex justify-center items-center z-[40] ">
+     <Movies/>
+        </div> 
+        </>)
 }
 
 export default Browse

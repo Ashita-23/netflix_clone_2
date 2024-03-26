@@ -55,8 +55,8 @@ const Navigation= ()=>{
    <ul className="border border-red-600 flex text-white ml-6 ">
     <li className="text-md p-1 m-1 hover:text-slate-500">Home</li>
     <Link to={"/Tv"}><li className="text-md p-1 m-1 hover:text-slate-500">TV</li></Link>
-    <li className="text-md p-1 m-1 hover:text-slate-500">Movie</li>
-    <li className="text-md p-1 m-1 hover:text-slate-500">My list</li>
+    <Link to={"/browse"}><li className="text-md p-1 m-1 hover:text-slate-500">Movie</li></Link>
+    <Link to={"/watchlist"}><li className="text-md p-1 m-1 hover:text-slate-500">My list</li></Link>
    </ul></div>
    <div className="border border-red-600 w-4/12 flex justify-around items-center">
  {toggleValue?<button className="text-white bg-red-600 px-4 py-1 rounded-md" onClick={()=>dispatch(AddToggle(true))} >Search</button>:

@@ -48,7 +48,7 @@ if(!Movie_dataBySearch) return null
                     <img src={POSTER_API+data?.poster_path} className="w-[150px] h-[200px]" />
                     <div className="border border-red-800 p-2">
                     <p className="text-white text-2xl">{data?.name}</p>
-                    <p className="text-[0.6rem] text-white">{data?.overview}</p>
+                    <p className="text-[0.6rem] text-white truncate">{data?.overview}</p>
                     <button className="rounded-sm text-white bg-red-600 px-3 py-2 m-2">Watch Now</button>
                     </div>
                     </div>)
