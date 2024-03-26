@@ -9,7 +9,7 @@ const Movies = ()=>{
     const [MTrailerKey,setMTrailerKey]=useState()
     // console.log(MTrailerKey,"MT key")
     const [ShowSuggetion,setShowSuggetions]=useState(false)
-    console.log( MovieId[MovieId.length-1]," MovieId")
+    // console.log( MovieId[MovieId.length-1]," MovieId")
 const dispatch = useDispatch()
 
     useEffect(()=>{getData()},[MovieId ])
@@ -31,7 +31,7 @@ const dispatch = useDispatch()
         <MovieCard data={MTrailerKey}/>
     </div>
         <div className="border border-blue-400 w-[30%] h-[100%]  text-gray-400 flex flex-col justify-center p-10">
-        <button className="text-red-500 font-semibold p-1 text-3xl ml-[80%]"><i className="fa-solid fa-xmark"></i></button>
+        <button className="text-red-500 font-semibold p-1 text-3xl ml-[80%]" onClick={()=>dispatch(AddShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
         <p className="text-white text-md">{MovieId[0]?.title}</p>
         <p className="text-white text-[0.6rem]">{MovieId[0]?.overview}</p>
         <button className=" px-3 py-2 bg-red-600 text-white text-lg m-1 rounded-sm cursor-pointer hover:bg-red-700" onClick={()=>dispatch(AddShowMovie(true))}>Watch Now</button>
@@ -58,7 +58,7 @@ useEffect(()=>{getData()},[])
     const getData = async ()=>{
         const api =  await  fetch('https://api.themoviedb.org/3/movie/'+MovieId+'/similar?language=en-US&page=1', options)
         const Json = await api.json()
-        console.log(Json,"suggestion m api")
+        // console.log(Json,"suggestion m api")
         setSuggestion(Json)
     }
 

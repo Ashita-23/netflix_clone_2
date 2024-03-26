@@ -1,38 +1,42 @@
 
-import { useSelector} from "react"
-import { useNowPlay , useNowPopuler,useNowTop,useUp_coming} from "../utils/useProjectApi"
+
+import { useNowPlay , useNowTop,useUp_coming} from "../utils/useProjectApi"
 import {videoCardsTitle} from "../utils/hardCodedData"
 import NowPlayingCards from "./videoCards"
 // import { options } from "../utils/apiOptions"
 import BackdropCard from "./backbrop"
 import Movies from "./Movies"
+import { useSelector,useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { AddShowMovie } from "../RStore/showMovie"
 
 
 
 
 const Browse = ()=>{
-    // const Show_Movie=useSelector((store)=>store.Show_Movie.IsMovie)
+    const Show_Movie=useSelector((store)=>store.Show_Movie.IsMovie)
+    const MovieId=useSelector((store)=>store.Movie_Id.id)
+    // console.log(Show_Movie,"Show_Movie")
+    // console.log(MovieId,"MovieId")
     const nowPlayingApi=useNowPlay()
-    const nowPopulerApi=useNowPopuler()
+    // const nowPopulerApi=useNowPopuler()
     const nowTop_RatedApi=useNowTop()
     const nowUp_ComingApi=useUp_coming()
     // const [TrailerKey,setTrailerKey]=useState()
     // console.log(TrailerKey,"Tkey")
+    const dispatch = useDispatch()
 
 
+useEffect(()=>{ 
+    setShowMovieToggle()
+},[MovieId])
 
-    
-    // const getData= async()=>{
-    //     const ApiLink="https://api.themoviedb.org/3/movie/"+nowPlayingApi?.results[0]?.id+"/videos?language=en-US"
-    //     const Api = await fetch(ApiLink, options)
-    //     const Json = await Api.json()
-    //     // console.log(Json,"Json")
-    //     const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-    //     const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
-    //     setTrailerKey(Trailer.key)
-    // }
-    // useEffect(()=>{getData()},[])
-// 
+const setShowMovieToggle = ()=>{
+    if(MovieId){
+        dispatch(AddShowMovie())
+    }
+}
+
     return( <>
 <div className="relative w-[100%] h-[100vh] overflow-scroll">
 {/* <div>
@@ -49,9 +53,9 @@ const Browse = ()=>{
     </div> */}
     <BackdropCard backdropData={ nowPlayingApi}/>
      <div className="border bg-black  ">
-    <div className="p-2 -mt-[14%] z-30 absolute">
+    <div className="p-2 -mt-[14%] z-30  absolute">
                 <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results.id}></NowPlayingCards></div>
-            <div className=" mt-[7rem] relative">
+            <div className=" mt-[7rem]">
                {/* <NowPlayingCards  NowData={ nowPopulerApi?.results} titleText={videoCardsTitle[1]} key={nowPopulerApi?.results.id} ></NowPlayingCards> */}
                <NowPlayingCards  NowData={nowTop_RatedApi?.results} titleText={videoCardsTitle[2]} key={nowTop_RatedApi?.results.id}></NowPlayingCards>
                <NowPlayingCards  NowData={nowUp_ComingApi?.results} titleText={videoCardsTitle[3]} key={nowUp_ComingApi?.results.id}></NowPlayingCards>
@@ -62,11 +66,14 @@ const Browse = ()=>{
    
         </div> 
             {/* <div className="border border-red-700 absolute -mt-[80%] z-[100]" ></div> */}
-
 </div>
-  <div className="border border-red-700 h-[auto] p-10 w-[full]sticky bg-black backdrop-blur-sm -mt-[45%] flex justify-center items-center z-[40] ">
-     <Movies/>
-        </div> 
+
+{
+    Show_Movie ? <div className="border border-green-700 h-[auto] p-10 w-[full] sticky bg-black  -mt-[45%] flex justify-center items-center z-[40] ">
+            <Movies/>
+        </div>  : " "
+}
+          
         </>)
 }
 
