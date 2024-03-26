@@ -6,6 +6,8 @@ import UserSlice from "./userSlice";
 import movieId from "./movieId";
 import showMovie from "./showMovie";
 import TvSearchToggle from "./tvSearchToggle";
+import showSeries from "./showSeries";
+import SeriesId from "./seriesId"
 
 
 const NetFlixStore = configureStore({
@@ -17,6 +19,8 @@ User_Slice:UserSlice,
 Movie_Id:movieId,
 Show_Movie:showMovie,
 Tv_SearchToggle:TvSearchToggle,
+Show_Series:showSeries,
+Series_Id:SeriesId
     }
 })
 
