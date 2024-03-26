@@ -43,7 +43,7 @@ const TvNav = ()=>{
     },[])
 
 
-    return(<nav className="w-[100%] fixed h-20 px-4  bg-gradient-to-b from-black z-20 flex justify-around items-center ">
+    return(<nav className="w-[100%] fixed h-20 px-4  bg-gradient-to-b from-black z-20 flex justify-around items-center  z-50">
     <div className="border border-red-600 flex items-center w-6/12 ">
     <span className="text-red-600 text-center ml-[0.5rem]  font-bold text-[2rem] tracking-wider sm: md:">CHALCHITRA</span>
    <ul className="border border-red-600 flex text-white ml-6 ">
