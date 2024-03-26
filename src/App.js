@@ -4,6 +4,7 @@ import SignIn from './Components/sign_in';
 // import Navigation from './Components/Browse_Components/header';
 import BrowseComponent from './BrowseComponents';
 import TvComponets from './TvComponents';
+import Watch_List from './watch_List';
 
 // import Navigation from './Components/Browse_Components/header';
 
@@ -23,6 +24,10 @@ const AppRouter = createBrowserRouter([
    {
     path:"/Tv",
     element:<TvComponets/>
+   },
+   {
+    path:"/watchlist",
+    element:<Watch_List/>
    }
 ])
 
