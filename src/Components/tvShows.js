@@ -32,7 +32,7 @@ const setShowSeriesToggle = ()=>{
 
 
     return(<>
-  <div className="border border-red-500 h-[auto] w-[full] overflow-scroll">
+  <div className="border border-red-500 h-[auto] w-[full] overflow-scroll no-scrollbar">
   {/* <Navigation></Navigation> */}
   <TvBackdropCard backdropData={TV_Series}/>
   <div className="border bg-black  ">

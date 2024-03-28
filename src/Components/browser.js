@@ -38,7 +38,7 @@ const setShowMovieToggle = ()=>{
 }
 
     return( <>
-<div className="relative w-[100%] h-[100vh] overflow-scroll">
+<div className="relative w-[100%] h-[100vh] overflow-scroll  no-scrollbar">
 {/* <div>
     <iframe className=" w-screen aspect-video  " src={"https://www.youtube.com/embed/"+TrailerKey+"?&autoplay=1&mute=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
