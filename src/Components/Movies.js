@@ -32,14 +32,14 @@ const dispatch = useDispatch()
         <MovieCard data={MTrailerKey}/>
     </div>
         <div className=" w-[30%] h-[100%]  text-gray-400 flex flex-col justify-center p-10">
-        <button className="text-red-500 font-semibold p-1 text-3xl ml-[80%]" onClick={()=>dispatch(AddShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
+        <button className="cursor-pointer text-red-500 font-semibold p-1 text-3xl ml-[80%]" onClick={()=>dispatch(AddShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
         <p className="text-white text-md">{MovieId[0]?.title}</p>
         <p className="text-white text-[0.6rem]">{MovieId[0]?.overview}</p>
         <button className=" px-3 py-2 bg-red-600 text-white text-lg m-1 rounded-sm cursor-pointer hover:bg-red-700" onClick={()=>dispatch(AddShowMovie(true))}>Watch Now</button>
         <button className=" px-3 py-2 bg-red-600 text-white text-lg m-1 rounded-sm cursor-pointer hover:bg-red-700" onClick={()=>setShowSuggetions(!ShowSuggetion)}>Suggestion</button>
         </div>
         </div>
-       {ShowSuggetion ?  <Movie_Suggetions MovieId={MovieId[0]?.id}/> : " "}
+       {ShowSuggetion ? <Movie_Suggetions MovieId={MovieId[0]?.id}/> : " "}
     </div>)
 }
 
@@ -65,7 +65,7 @@ const Movie_Suggetions = ({MovieId})=>{
         <p className="text-xl text-white p-4 bg-slate-600 mb-[0.2rem]">Movie suggestion</p>
         <div className=" flex flex-wrap justify-evenly h-[40rem] pt-2 overflow-y-scroll no-scrollbar bg-slate-600">
         {
-            suggestion?.results.map((data)=> <SuggestionCards data={data}/>)
+            suggestion?.results?.map((data)=> <SuggestionCards data={data}/>)
         }
         </div>
     </div>)

@@ -37,12 +37,12 @@ const setShowSeriesToggle = ()=>{
   <TvBackdropCard backdropData={TV_Series}/>
   <div className="border bg-black  ">
     <div className="p-2 -mt-[14%] z-40 absolute">
-                <TvSeriesCards  NowData={ TV_Series?.results} titleText={TvCardsTitle[0]} key={TV_Series?.results.id} ></TvSeriesCards> 
+                <TvSeriesCards  NowData={ TV_Series?.results} titleText={TvCardsTitle[0]} key={TV_Series?.results?.id} ></TvSeriesCards> 
                 </div> 
                <div className=" mt-[7rem]">
-                <TvSeriesCards  NowData={TV_SeriesPopular?.results} titleText={TvCardsTitle[1]} key={TV_SeriesPopular?.results.id} ></TvSeriesCards>
-               <TvSeriesCards  NowData={TV_SeriesOnAir?.results} titleText={TvCardsTitle[2]} key={TV_SeriesOnAir?.results.id}></TvSeriesCards>
-               <TvSeriesCards  NowData={TV_SeriesTop_rated?.results} titleText={TvCardsTitle[3]} key={TV_SeriesTop_rated?.results.id}></TvSeriesCards>
+                <TvSeriesCards  NowData={TV_SeriesPopular?.results} titleText={TvCardsTitle[1]} key={TV_SeriesPopular?.results?.id} ></TvSeriesCards>
+               <TvSeriesCards  NowData={TV_SeriesOnAir?.results} titleText={TvCardsTitle[2]} key={TV_SeriesOnAir?.results?.id}></TvSeriesCards>
+               <TvSeriesCards  NowData={TV_SeriesTop_rated?.results} titleText={TvCardsTitle[3]} key={TV_SeriesTop_rated?.results?.id}></TvSeriesCards>
                </div> 
 
     </div>  

@@ -33,7 +33,7 @@ if(!Movie_dataBySearch) return null
                     <img alt="Cover" src={netflixCover} className="w-screen"></img>
                    <form onSubmit={(e)=>e.preventDefault()} className=" w-6/12 flex py-4 px-2 items-center justify-center absolute -mt-[45%] ml-[18%]  bg-black rounded-md ">
                     <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none"/>
-                    <button className="px-4 py-2 text-white text-md bg-red-600 rounded-r-md" onClick={()=>setSearch(searchText.current.value)}>Search</button>
+                    <button className="cursor-pointer px-4 py-2 text-white text-md bg-red-600 rounded-r-md" onClick={()=>setSearch(searchText.current.value)}>Search</button>
                    </form>
               {!search ? "": <div className="border border-green-700 w-6/12 h-[60%] flex flex-col p-[0.5rem] pt-[1rem] absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-y-scroll no-scrollbar ">
                  {

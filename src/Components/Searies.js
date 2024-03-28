@@ -7,11 +7,11 @@ import SuggestionCards from "./SuggetionCards"
 
 const TvSeries = ()=>{
     const Series_Id = useSelector((store)=>store.Series_Id.id)
-    console.log(Series_Id[0].id,"S id")
+    // console.log(Series_Id[0].id,"S id")
     const [MTrailerKey,setMTrailerKey]=useState()
-    console.log(MTrailerKey,"MT key")
+    // console.log(MTrailerKey,"MT key")
     const [ShowSuggetion,setShowSuggetions]=useState(false)
-    console.log( Series_Id[0]," SeriesId")
+    // console.log( Series_Id[0]," SeriesId")
 const dispatch = useDispatch()
 // 'https://api.themoviedb.org/3/tv/2224/videos?language=en-US'
     useEffect(()=>{getData()},[])
