@@ -69,43 +69,48 @@ const SignIn = () => {
 
     }
 
-    return   (<div className="relative border border-red-700 h-[100vh] w-full overflow-scroll ">
+    return   (<div className="relative h-[100vh] w-full overflow-scroll no-scrollbar ">
       
-         <nav className="w-[100%]  h-[4rem] px-4 bg-gradient-to-b from-black z-20 flex justify-between items-center fixed"> 
-        <span className="text-red-600 text-center ml-[0.5rem]  font-bold text-[2rem] tracking-wider sm: md:">CHALCHITRA</span> 
-         <button  className="text-white bg-slate-400 px-4 py-1 rounded-md" onClick={()=>dispatch(AddSignIn(true))}> <i className="fa-regular fa-face-smile"></i> {IsIN_UP?" Sign in":"Sign up"}</button> 
+         <nav className=" w-[100%]  bg-gradient-to-b from-black  h-[4rem] px-4  z-20 flex justify-between items-center fixed xxsm:h-[3rem] xsm:h-[3rem]"> 
+        <span className="text-red-600 text-center ml-[0.5rem]  font-bold text-[2rem] tracking-wider xxsm:text-xl ml-[0.0rem] xsm:text-xl ml-[0.0rem] sm: md:">CHALCHITRA</span> 
+         <button  className="text-white bg-slate-400 px-4 py-1 rounded-md xxsm:text-[0.9rem]" onClick={()=>dispatch(AddSignIn(true))}> <i className="fa-regular fa-face-smile"></i> {IsIN_UP?" Sign in":"Sign up"}</button> 
          </nav>  
          <div className="w-[100%] h-[auto]  border border-gray-500">
-            <img src={netflixCover}  alt="background image" className="w-screen "/>
-            <div className="border border-green-600 mt-[-40%] ml-[40%] bg-black  absolute py-[3rem] px-[1.5rem] opacity-90"> 
-            {/* <h1>Unlimited movies, TV shows and more</h1> */}
-               {  IsIN_UP ? <form onSubmit={(e)=>e.preventDefault()} className="border border-red-600  w-[20rem] px-4 py-2  bg-black flex flex-col justify-evenly item-center  ">
-                   <p className="text-2xl font-bold text-white my-2">Sign Up</p>
-                    <input type="text" ref={name} placeholder="Enter Your Name.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
-                    <input type="email" ref={email} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
-                    <input  type="password" autoComplete="on" ref={password} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
+            <img src={netflixCover}  alt="background image" className="w-screen xxsm:h-[50vh] xsm:h-[60vh] sm:h-[60vh] md:h-[70vh] lg:w-screen  xl:w-screen 2xl:w-screen 3xl:w-screen 4xl:w-screen 5xl:w-screen  6xl:w-screen   "/>
+            <div className="flex flex-col justify-center items-center w-[100%]   mt-[-40%] ml-[0]   absolute py-[0.5rem] px-[1.5rem] opacity-90 
+            xxsm:-mt-[22.2rem] ml-[0] xsm:-mt-[25rem] ml-0 sm:-mt-[25rem]  md:-mt-[26rem]  lg:-mt-[30rem] xl:-mt-[35rem]  2xl:ml-0 3xl:ml-0"> 
+            {/* <h1>Unlimited movies, TV shows and more</h1> */} 
+               {  IsIN_UP ? <form onSubmit={(e)=>e.preventDefault()} className="  w-[25rem] px-[1.5rem] py-2  bg-black flex flex-col justify-evenly item-center 
+               xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[20rem] 3xl:w-[20rem] 4xl:w-[20rem] 5xl:w-[20rem] 6xl:w-[20rem] ">
+                   <p className="text-2xl font-bold text-white my-2  xxsm:text-lg">Sign Up</p>
+                    <input type="text" ref={name} placeholder="Enter Your Name.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none xxsm:text-sm"/>
+                    <input type="email" ref={email} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none  xxsm:text-sm"/>
+                    <input  type="password" autoComplete="on" ref={password} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none  xxsm:text-sm"/>
                     <p className="text-[0.8rem] text-red-500 p-1 m-1">{VSU_Message}</p>
-                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2" onClick={()=>SignUpHandler()}>Sign Up Now</button>
+                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2  xxsm:text-sm" onClick={()=>SignUpHandler()}>Sign Up Now</button>
                 </form>:
-                <form  onSubmit={(e)=>e.preventDefault()}  className="border border-red-600  w-[20rem] px-4 py-2  bg-black flex flex-col justify-evenly item-center  ">
+                <form  onSubmit={(e)=>e.preventDefault()}  className="w-[25rem] px-[1.5rem] py-2  bg-black flex flex-col justify-evenly item-center 
+               xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[20rem] 3xl:w-[20rem] 4xl:w-[20rem] 5xl:w-[20rem] 6xl:w-[20rem]  ">
                   <p className="text-2xl font-bold text-white my-2">Sign In</p>
                     <input type="email" ref={INemail} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
                     <input  type="password" autoComplete="on" ref={INpassword} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
                     <p className="text-[0.8rem] text-red-500 p-1 m-1">{VSI_Message}</p>
 
-                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2" onClick={()=>SignInHandler()}>Sign In  </button>
+                    <button className="text-md bg-red-600 text-white rounded-md p-2 my-2 " onClick={()=>SignInHandler()}>Sign In  </button>
                 </form> }
-{  IsIN_UP   ? <div className="text-white px-6 py-0  text-left"><span className="text-sm">Already registered? </span>
+{  IsIN_UP   ? <div className="text-white  px-6 pb-2 text-left w-[25rem] bg-black
+ xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[20rem] 3xl:w-[20rem] 4xl:w-[20rem] 5xl:w-[20rem] 6xl:w-[20rem]"><span className="text-sm">Already registered? </span>
             <button className="text-red-500 text-sm" onClick={()=>{dispatch(AddSignIn(false)) }}> Sign In Now.</button></div>:
-            <div className="text-white px-6 py-0  text-left"><span className="text-sm">If you are not registered? </span>
+            <div className="text-white  px-6 pb-2 text-left w-[25rem] bg-black
+ xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[20rem] 3xl:w-[20rem] 4xl:w-[20rem] 5xl:w-[20rem] 6xl:w-[20rem]"><span className="text-sm">If you are not registered? </span>
             <button className="text-red-500 text-sm" onClick={()=>dispatch(AddSignIn(true))}> Sign Up Now.</button></div>
-            }
+      }
             </div> 
-
-          <div className=" bg-black p-6  ">
+          <div className=" bg-black p-6 flex flex-col justify-center items-center xxsm:p-1 ">
             <FooterCards/>
             <FooterQues/>
-            <div className="text-white flex justify-center p-1 mt-[3.5rem]"><p className="text-sm  ">Netflix Clone {"( CHALCHITRA )"} <i className="fa-regular fa-copyright text-sm "></i> 2024</p></div>
+            <div className="text-red-500 flex justify-center p-1 mt-[3.5rem]"><p className="text-sm xxsm:text-[0.8rem]  ">Netflix Clone {"( CHALCHITRA )"} 
+            { " "}<i className="fa-regular fa-copyright text-sm xxsm:text-[0.8rem]"></i> 2024</p></div>
           </div>
         </div>
        </div>)
