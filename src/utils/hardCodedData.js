@@ -59,7 +59,7 @@ export const footerCardsData = [
 export const footerSecCD=[
     {
         title:"Enjoy on your TV",
-        text:" Watch on smart TVs , PlayStations,Xbos,Chromecast,Apple TV , Blu-ray players and more.",
+        text:" Watch on smart TVs , PlayStations , Xbos , Chromecast , AppleTV , Blu-ray players and more.",
         Icon:"fa-solid fa-tv",
         key:"00A1"
     },
@@ -70,7 +70,7 @@ export const footerSecCD=[
         key:"00A2"
     },
     {
-        title:"watch everywhere ",
+        title:"Watch everywhere ",
         text:" Stream unlimited movies and TV shows on your phone,tablet,laptop and TV.",
         Icon:"fa-solid fa-video",
         key:"00A3"
