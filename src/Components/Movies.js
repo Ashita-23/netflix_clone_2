@@ -2,6 +2,7 @@ import { useEffect,useState } from "react"
 import { options } from "../utils/apiOptions"
 import { useDispatch, useSelector } from "react-redux"
 import {AddShowMovie} from "../RStore/showMovie"
+import SuggestionCards from "./SuggetionCards"
 
 
 const Movies = ()=>{
@@ -25,12 +26,12 @@ const dispatch = useDispatch()
     }
 
 
-    return(<div className="border border-green-600 w-[76%] h-[80%] flex flex-col">
-    <div className="border border-gray-50 flex ">
-        <div className="border border-red-600 w-[70%] flex justify-center"> 
+    return(<div className=" w-[76%] h-[80%] flex flex-col border border-slate-400 p-2">
+    <div className=" flex ">
+        <div className=" w-[70%] flex justify-center"> 
         <MovieCard data={MTrailerKey}/>
     </div>
-        <div className="border border-blue-400 w-[30%] h-[100%]  text-gray-400 flex flex-col justify-center p-10">
+        <div className=" w-[30%] h-[100%]  text-gray-400 flex flex-col justify-center p-10">
         <button className="text-red-500 font-semibold p-1 text-3xl ml-[80%]" onClick={()=>dispatch(AddShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
         <p className="text-white text-md">{MovieId[0]?.title}</p>
         <p className="text-white text-[0.6rem]">{MovieId[0]?.overview}</p>
@@ -44,31 +45,32 @@ const dispatch = useDispatch()
 
 const MovieCard = ({data})=>{
     return(<>
-<iframe className=" w-[100%] aspect-video border border-white " src={"https://www.youtube.com/embed/"+data+"?&autoplay=1&mute=1" }
+<iframe className=" w-[100%] aspect-video " src={"https://www.youtube.com/embed/"+data+"?&autoplay=1&mute=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowFullScreen></iframe>
     </>)
 }
 
-
 const Movie_Suggetions = ({MovieId})=>{
   const [suggestion,setSuggestion]=useState()
-useEffect(()=>{getData()},[])
+   useEffect(()=>{getData()},[])
  
     const getData = async ()=>{
         const api =  await  fetch('https://api.themoviedb.org/3/movie/'+MovieId+'/similar?language=en-US&page=1', options)
         const Json = await api.json()
-        // console.log(Json,"suggestion m api")
+        console.log(Json,"suggestion m api")
         setSuggestion(Json)
     }
-
-    return(<div className="border border-green-500 m-1 text-white overflow-scroll">
-        <p>Movie suggestion</p>
+    return(<div className=" text-white  ">
+        <p className="text-xl text-white p-4 bg-slate-600 mb-[0.2rem]">Movie suggestion</p>
+        <div className=" flex flex-wrap justify-evenly h-[40rem] pt-2 overflow-y-scroll no-scrollbar bg-slate-600">
         {
-            suggestion?.results.map((data)=><p>{data.title}</p>)
+            suggestion?.results.map((data)=> <SuggestionCards data={data}/>)
         }
+        </div>
     </div>)
 }
+
 
 
 export default Movies

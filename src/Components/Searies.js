@@ -2,6 +2,7 @@ import { useEffect,useState } from "react"
 import { options } from "../utils/apiOptions"
 import { useDispatch, useSelector } from "react-redux"
 import {AddShowSeries} from "../RStore/showSeries"
+import SuggestionCards from "./SuggetionCards"
 
 
 const TvSeries = ()=>{
@@ -63,11 +64,13 @@ useEffect(()=>{getData()},[])
         setSuggestion(Json)
     }
 
-    return(<div className="border border-green-500 m-1 text-white overflow-scroll">
-        <p>Tv Sereis Suggetion</p>
+    return(<div className="border border-green-500 m-1  text-white">
+        <p  className="text-xl text-white m-4">Tv Sereis Suggetion</p>
+        <div className="border border-blue-600 flex flex-wrap justify-evenly h-[40rem] overflow-y-scroll no-scrollbar  bg-slate-600">
         {
-            suggestion?.results.map((data)=><p>{data.name}</p>)
+            suggestion?.results.map((data)=><SuggestionCards data={data}/>)
         }
+        </div>
     </div>)
 }
 
