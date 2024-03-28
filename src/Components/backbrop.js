@@ -3,6 +3,7 @@ import { options } from "../utils/apiOptions"
 
 
 const BackdropCard = ({backdropData})=>{
+    console.log(backdropData,"backdropData")
     const [TrailerKey,setTrailerKey]=useState()
     // console.log(TrailerKey,"Tkey")
     const getData= async()=>{
@@ -18,7 +19,7 @@ const BackdropCard = ({backdropData})=>{
     useEffect(()=>{getData()},[])
     // if(TrailerKey===null) return 
     return(<div>
-    <iframe className=" w-screen aspect-video border border-yellow-400 " src={"https://www.youtube.com/embed/"+"d2OONzqh2jk"+"?&autoplay=1&mute=1&loop=1" }
+    <iframe className=" w-screen aspect-video border border-yellow-400 " src={"https://www.youtube.com/embed/d2OONzqh2jk?&autoplay=1&mute=1&loop=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowFullScreen></iframe>
     <div className="w-screen border border-red-500 aspect-video absolute bg-gradient-to-r from-black -mt-[55%] -z-[-10] xxsm: xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
