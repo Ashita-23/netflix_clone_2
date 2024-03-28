@@ -29,7 +29,7 @@ const setShowSeriesToggle = ()=>{
       dispatch(AddShowSeries())
   }
 }
-
+if(Series_Id===null) return
 
     return(<>
   <div className="border border-red-500 h-[auto] w-[full] overflow-scroll no-scrollbar">
