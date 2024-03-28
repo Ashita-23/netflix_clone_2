@@ -17,7 +17,6 @@ const [Movie_dataBySearch,setMovie_dataBySearch]=useState()
     getData()
 },[search])
 
-// 'https://api.themoviedb.org/3/search/movie?query=koi%20mil%20gaya&include_adult=false&language=en-US&page=1'
 
 const getData = async ()=>{
     const Api = await fetch("https://api.themoviedb.org/3/search/movie?query="+search+"&include_adult=false&language=en-US&page=1",options)
@@ -40,7 +39,7 @@ if(!Movie_dataBySearch) return null
                  {
                     Movie_dataBySearch.length === 0  ? <SearchErrorCards/>
                :
-                    Movie_dataBySearch.map((data)=>  <SearchCards data={data}/>)
+                    Movie_dataBySearch?.map((data)=>  <SearchCards data={data}/>)
                    }
                    </div>}
                    

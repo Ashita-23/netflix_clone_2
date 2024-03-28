@@ -42,12 +42,12 @@ const setShowMovieToggle = ()=>{
     <BackdropCard backdropData={ nowPlayingApi}/>
      <div className="border bg-black  ">
     <div className="p-2 -mt-[14%] z-30  absolute  xxsm: xsm: sm:-mt-[8%] md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
-                <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results.id}></NowPlayingCards>
+                <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results?.id}></NowPlayingCards>
                 </div>
             <div className=" mt-[7rem]  xxsm: xsm: sm:mt-[16rem] md:mt-[12rem] lg:mt-[10rem] xl:mt-[8rem] 2xl:mt-[6rem] 3xl:mt-[4rem] 4xl: 5xl: 6xl:">
                {/* <NowPlayingCards  NowData={ nowPopulerApi?.results} titleText={videoCardsTitle[1]} key={nowPopulerApi?.results.id} ></NowPlayingCards> */}
-               <NowPlayingCards  NowData={nowTop_RatedApi?.results} titleText={videoCardsTitle[2]} key={nowTop_RatedApi?.results.id}></NowPlayingCards>
-               <NowPlayingCards  NowData={nowUp_ComingApi?.results} titleText={videoCardsTitle[3]} key={nowUp_ComingApi?.results.id}></NowPlayingCards>
+               <NowPlayingCards  NowData={nowTop_RatedApi?.results} titleText={videoCardsTitle[2]} key={nowTop_RatedApi?.results?.id}></NowPlayingCards>
+               <NowPlayingCards  NowData={nowUp_ComingApi?.results} titleText={videoCardsTitle[3]} key={nowUp_ComingApi?.results?.id}></NowPlayingCards>
             </div> 
         </div> 
 </div>

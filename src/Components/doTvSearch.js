@@ -39,7 +39,7 @@ if(!Movie_dataBySearch) return null
                  {
                     Movie_dataBySearch.length === 0  ? <SearchErrorCards/>
                :
-                    Movie_dataBySearch.map((data)=><SearchCards data={data}/>)
+                    Movie_dataBySearch?.map((data)=><SearchCards data={data}/>)
                    }
                   
                    </div>}
