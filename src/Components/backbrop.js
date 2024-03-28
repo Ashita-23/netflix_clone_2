@@ -4,19 +4,21 @@ import { options } from "../utils/apiOptions"
 
 const BackdropCard = ({backdropData})=>{
     const [TrailerKey,setTrailerKey]=useState()
-    console.log(TrailerKey,"Tkey")
+    // console.log(TrailerKey,"Tkey")
     const getData= async()=>{
-        const ApiLink="https://api.themoviedb.org/3/movie/"+backdropData?.results[0]?.id+"/videos?language=en-US"
+        const ApiLink="https://api.themoviedb.org/3/movie/"+"1011985"+"/videos?language=en-US"
         const Api = await fetch(ApiLink, options)
         const Json = await Api.json()
         // console.log(Json,"Json")
         const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
         const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
         setTrailerKey(Trailer.key)
+
     }
     useEffect(()=>{getData()},[])
+    // if(TrailerKey===null) return 
     return(<div>
-    <iframe className=" w-screen aspect-video  " src={"https://www.youtube.com/embed/"+TrailerKey+"?&autoplay=1&mute=1" }
+    <iframe className=" w-screen aspect-video  " src={"https://www.youtube.com/embed/"+"d2OONzqh2jk"+"?&autoplay=1&mute=1&loop=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowFullScreen></iframe>
     <div className="w-screen aspect-video absolute bg-gradient-to-r from-black -mt-[55%] -z-[-10]">
