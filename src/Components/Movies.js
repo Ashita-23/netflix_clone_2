@@ -3,13 +3,14 @@ import { options } from "../utils/apiOptions"
 import { useDispatch, useSelector } from "react-redux"
 import {AddShowMovie} from "../RStore/showMovie"
 import SuggestionCards from "./SuggetionCards"
+import EmptySuggestionImg from "../assets/suggestion.png"
 
 
 const Movies = ()=>{
     const MovieId = useSelector((state)=>state.Movie_Id.id)
     const [MTrailerKey,setMTrailerKey]=useState()
     // console.log(MTrailerKey,"MT key")
-    const [ShowSuggetion,setShowSuggetions]=useState(false)
+    const [ShowSuggetion,setShowSuggetions]=useState()
     // console.log( MovieId[MovieId.length-1]," MovieId")
 const dispatch = useDispatch()
 
@@ -21,6 +22,7 @@ const dispatch = useDispatch()
         const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
         const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
         // console.log(Json,"Json")
+        if(Trailer===undefined) return
         setMTrailerKey(Trailer.key)
     
     }
@@ -29,17 +31,19 @@ const dispatch = useDispatch()
     return(<div className=" w-[76%] h-[80%] flex flex-col border border-slate-400 p-2">
     <div className=" flex ">
         <div className=" w-[70%] flex justify-center"> 
-        <MovieCard data={MTrailerKey}/>
+      { MTrailerKey? <MovieCard data={MTrailerKey}/>: <div className="w-[100%]  flex justify-center items-center">
+        <p className="text-white text-xl">trailer is not ready</p></div>}
     </div>
         <div className=" w-[30%] h-[100%]  text-gray-400 flex flex-col justify-center p-10">
         <button className="cursor-pointer text-red-500 font-semibold p-1 text-3xl ml-[80%]" onClick={()=>dispatch(AddShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
         <p className="text-white text-md">{MovieId[0]?.title}</p>
         <p className="text-white text-[0.6rem]">{MovieId[0]?.overview}</p>
         <button className=" px-3 py-2 bg-red-600 text-white text-lg m-1 rounded-sm cursor-pointer hover:bg-red-700" onClick={()=>dispatch(AddShowMovie(true))}>Watch Now</button>
-        <button className=" px-3 py-2 bg-red-600 text-white text-lg m-1 rounded-sm cursor-pointer hover:bg-red-700" onClick={()=>setShowSuggetions(!ShowSuggetion)}>Suggestion</button>
+{     MTrailerKey?<button className=" px-3 py-2 bg-red-600 text-white text-lg m-1 rounded-sm cursor-pointer hover:bg-red-700" onClick={()=>setShowSuggetions(!ShowSuggetion)}>Suggestion</button>:""}
         </div>
         </div>
-       {ShowSuggetion ? <Movie_Suggetions MovieId={MovieId[0]?.id}/> : " "}
+       {ShowSuggetion ? <Movie_Suggetions MovieId={MovieId[0]?.id}/> :" "
+       }
     </div>)
 }
 
@@ -53,6 +57,8 @@ const MovieCard = ({data})=>{
 
 const Movie_Suggetions = ({MovieId})=>{
   const [suggestion,setSuggestion]=useState()
+//   const [imptyCards,setImptyCards]=useState(true)
+console.log(suggestion,"sugge....")
    useEffect(()=>{getData()},[])
  
     const getData = async ()=>{
@@ -61,16 +67,23 @@ const Movie_Suggetions = ({MovieId})=>{
         console.log(Json,"suggestion m api")
         setSuggestion(Json)
     }
-    return(<div className=" text-white  ">
+    return(!suggestion)?( <div className="flex flex-col justify-center items-center h-[20rem]  bg-slate-600 border border-red-500">
+    <img src={EmptySuggestionImg} alt="Empty img" className="h-[250px] drop-shadow-2xl"></img>
+    <p className="text-lg text-white">Zero suggestions...</p></div>):(<div className=" text-white  ">
         <p className="text-xl text-white p-4 bg-slate-600 mb-[0.2rem]">Movie suggestion</p>
-        <div className=" flex flex-wrap justify-evenly h-[40rem] pt-2 overflow-y-scroll no-scrollbar bg-slate-600">
+       <div className=" flex flex-wrap justify-evenly h-[40rem] pt-2 overflow-y-scroll no-scrollbar bg-slate-600">
         {
-            suggestion?.results?.map((data)=> <SuggestionCards data={data}/>)
+            suggestion?.results &&  suggestion?.results?.map((data)=> <SuggestionCards data={data}/>)
         }
         </div>
+        
     </div>)
 }
 
-
+// {
+    // <div className="flex flex-col justify-center items-center h-[20rem]  bg-slate-600 border border-red-500">
+    //    <img src={EmptySuggestionImg} alt="Empty img" className="h-[250px] drop-shadow-2xl"></img>
+    //    <p className="text-lg text-white">Zero suggestions...</p></div>
+// }
 
 export default Movies

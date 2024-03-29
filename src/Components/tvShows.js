@@ -51,7 +51,7 @@ const setShowSeriesToggle = ()=>{
   </div>
   
 {
-    Show_Series ? <div className="border border-green-700 h-[auto] p-10 w-[full] sticky bg-black  -mt-[45%] flex justify-center items-center z-[40] ">
+    Show_Series ? <div className="border border-green-700 h-[auto] p-10 w-[full] sticky bg-black -mt-[45%] flex justify-center items-center z-[40] ">
            <TvSeries/>
         </div>  : " "
 }

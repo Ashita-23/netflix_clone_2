@@ -23,11 +23,11 @@ const Browse = ()=>{
     console.log(Movie_Id,"MovieId")
     const [nowPlayingApi,setNowPlayingApi] =useState()
     console.log(nowPlayingApi,"nowPlayingApi")
-    console.log(nowPlayingApi.results.length,"nowPlayingApi L")
+    // console.log(nowPlayingApi.results.length,"nowPlayingApi L")
 
     const [nowPopulerApi,setNowPopulerApi] = useState()
     const [nowTop_RatedApi,setNowTop_RatedApi] = useState()
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     
     const [nowUp_ComingApi,setNowUp_ComingApi] = useState()
@@ -61,14 +61,14 @@ const Browse = ()=>{
                     const Data = await fetch(UP_COMING , options)
                     const JSON = await Data.json()
                     setNowUp_ComingApi(JSON) }
-    // useEffect(()=>{ 
-    //     if(Movie_Id===null)return
-    //     setShowMovieToggle()
-    // },[Movie_Id])
+    useEffect(()=>{ 
+        if(Movie_Id===null)return
+        setShowMovieToggle()
+    },[Movie_Id])
     
-    // const setShowMovieToggle = ()=>{
-    //         dispatch(AddShowMovie())
-    //     }
+    const setShowMovieToggle = ()=>{
+            dispatch(AddShowMovie())
+        }
 
 
 
@@ -77,8 +77,8 @@ const Browse = ()=>{
     <BackdropCard />
      <div className="border bg-black  ">
     <div className="p-2 -mt-[14%] z-30  absolute  xxsm: xsm: sm:-mt-[8%] md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
-{ !nowPlayingApi?.results ? <Mt_ShimmerCards/>  : <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results?.id}></NowPlayingCards>
-                }</div>
+ <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results?.id}></NowPlayingCards>
+                </div>
             <div className=" mt-[7rem]  xxsm: xsm: sm:mt-[16rem] md:mt-[12rem] lg:mt-[10rem] xl:mt-[8rem] 2xl:mt-[6rem] 3xl:mt-[4rem] 4xl: 5xl: 6xl:">
             {/* <div className="flex overflow-scroll p-1 no-scrollbar ">
             <CardsImgShimmer/>
