@@ -43,7 +43,7 @@ const Browse = ()=>{
 
     return( <>
 <div className="relative w-[100%] h-[100vh] overflow-scroll  no-scrollbar">
-    <BackdropCard backdropData={ nowPlayingApi}/>
+    <BackdropCard />
      <div className="border bg-black  ">
     <div className="p-2 -mt-[14%] z-30  absolute  xxsm: xsm: sm:-mt-[8%] md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
                 <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results?.id}></NowPlayingCards>

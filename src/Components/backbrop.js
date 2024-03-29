@@ -1,13 +1,30 @@
 import { useState , useEffect} from "react"
 import { options } from "../utils/apiOptions"
+import { NOW_PLAYING_API } from "../utils/apiOptions"
 
 
-const BackdropCard = ({backdropData})=>{
+const BackdropCard = ()=>{
+    
+    
+    const [backdropData,setbackdropData]=useState()
     console.log(backdropData,"backdropData")
+    useEffect(()=>{
+        getBdData()
+    },[])
+
+    const getBdData = async ()=>{
+        const Data = await fetch(NOW_PLAYING_API , options)
+        const JSON = await Data.json()
+
+        setbackdropData(JSON) }
+
+
+
+
     const [TrailerKey,setTrailerKey]=useState()
     // console.log(TrailerKey,"Tkey")
     const getData= async()=>{
-        const ApiLink="https://api.themoviedb.org/3/movie/"+"1011985"+"/videos?language=en-US"
+        const ApiLink="https://api.themoviedb.org/3/movie/1011985/videos?language=en-US"
         const Api = await fetch(ApiLink, options)
         const Json = await Api.json()
         // console.log(Json,"Json")
