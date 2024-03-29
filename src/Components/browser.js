@@ -28,7 +28,7 @@ const Browse = ()=>{
 
     
     useEffect(()=>{ 
-        if(MovieId){
+        if(MovieId!==null){
         setShowMovieToggle()
         }
     },[MovieId])
