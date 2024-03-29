@@ -17,7 +17,7 @@ const Browse = ()=>{
     const Show_Movie=useSelector((store)=>store.Show_Movie.IsMovie)
     const MovieId=useSelector((store)=>store.Movie_Id.id)
     // console.log(Show_Movie,"Show_Movie")
-    // console.log(MovieId,"MovieId")
+    console.log(MovieId,"MovieId")
     const nowPlayingApi=useNowPlay()
     // const nowPopulerApi=useNowPopuler()
     const nowTop_RatedApi=useNowTop()
@@ -28,9 +28,9 @@ const Browse = ()=>{
 
     
     useEffect(()=>{ 
-        if(MovieId!==null){
+        if(MovieId===null)return
         setShowMovieToggle()
-        }
+        
     },[MovieId])
     
     const setShowMovieToggle = ()=>{
