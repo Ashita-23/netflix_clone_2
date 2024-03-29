@@ -62,7 +62,7 @@ const Browse = ()=>{
                     const JSON = await Data.json()
                     setNowUp_ComingApi(JSON) }
     useEffect(()=>{ 
-        if(Movie_Id===null)return
+        if(Movie_Id===undefined)return
         setShowMovieToggle()
     },[Movie_Id])
     
