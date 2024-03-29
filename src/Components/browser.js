@@ -20,9 +20,9 @@ const Browse = ()=>{
     const Show_Movie=useSelector((store)=>store.Show_Movie.IsMovie)
     const Movie_Id=useSelector((store)=>store.Movie_Id.id)
     // console.log(Show_Movie,"Show_Movie")
-    console.log(Movie_Id,"MovieId")
+    // console.log(Movie_Id,"MovieId")
     const [nowPlayingApi,setNowPlayingApi] =useState()
-    console.log(nowPlayingApi,"nowPlayingApi")
+    // console.log(nowPlayingApi,"nowPlayingApi")
     // console.log(nowPlayingApi.results.length,"nowPlayingApi L")
 
     const [nowPopulerApi,setNowPopulerApi] = useState()
