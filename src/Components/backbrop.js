@@ -8,32 +8,32 @@ const BackdropCard = ()=>{
     
     const [backdropData,setbackdropData]=useState()
     console.log(backdropData,"backdropData")
-    useEffect(()=>{
-        getBdData()
-    },[])
-
+    
     const getBdData = async ()=>{
         const Data = await fetch(NOW_PLAYING_API , options)
         const JSON = await Data.json()
-
+        console.log(JSON,"BDJSON")
         setbackdropData(JSON) }
+        
+            useEffect(()=>{
+                getBdData()
+            },[])
 
 
 
-
-    const [TrailerKey,setTrailerKey]=useState()
+    // const [TrailerKey,setTrailerKey]=useState()
     // console.log(TrailerKey,"Tkey")
-    const getData= async()=>{
-        const ApiLink="https://api.themoviedb.org/3/movie/1011985/videos?language=en-US"
-        const Api = await fetch(ApiLink, options)
-        const Json = await Api.json()
-        // console.log(Json,"Json")
-        const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-        const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
-        setTrailerKey(Trailer.key)
+    // const getData= async()=>{
+    //     const ApiLink="https://api.themoviedb.org/3/movie/1011985/videos?language=en-US"
+    //     const Api = await fetch(ApiLink, options)
+    //     const Json = await Api.json()
+    //     // console.log(Json,"Json")
+    //     const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
+    //     const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
+    //     setTrailerKey(Trailer.key)
 
-    }
-    useEffect(()=>{getData()},[])
+    // }
+    // useEffect(()=>{getData()},[])
     // if(TrailerKey===null) return 
     return(<div>
     <iframe className=" w-screen aspect-video border border-yellow-400 " src={"https://www.youtube.com/embed/d2OONzqh2jk?&autoplay=1&mute=1&loop=1" }

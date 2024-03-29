@@ -7,7 +7,7 @@ const TvBackdropCard = ({backdropData})=>{
  
 
     const getData= async()=>{
-        const ApiLink='https://api.themoviedb.org/3/tv/'+"82728 "+'/videos?language=en-US'
+        const ApiLink='https://api.themoviedb.org/3/tv/82728 /videos?language=en-US'
         const Api = await fetch(ApiLink, options)
         const Json = await Api.json()
         // console.log(Json,"Json")
