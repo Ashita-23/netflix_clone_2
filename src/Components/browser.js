@@ -28,16 +28,18 @@ const Browse = ()=>{
 
     
     useEffect(()=>{ 
+        if(MovieId){
         setShowMovieToggle()
+        }
     },[MovieId])
     
     const setShowMovieToggle = ()=>{
-        if(MovieId){
+      
             dispatch(AddShowMovie())
         }
-    }
 
-    if(MovieId===null) return
+
+    // if(MovieId===null) return
 
     return( <>
 <div className="relative w-[100%] h-[100vh] overflow-scroll  no-scrollbar">

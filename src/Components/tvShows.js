@@ -21,15 +21,16 @@ const Series_Id = useSelector((store)=>store.Series_Id.id)
 console.log(Series_Id,"S id")
 
 useEffect(()=>{ 
-  setShowSeriesToggle()
+    if(Series_Id ){
+  setShowSeriesToggle()}
 },[Series_Id])
 
 const setShowSeriesToggle = ()=>{
-  if(Series_Id ){
+
       dispatch(AddShowSeries())
   }
-}
-if(Series_Id===null) return
+
+// if(Series_Id===null) return
 
     return(<>
   <div className="border border-red-500 h-[auto] w-[full] overflow-scroll no-scrollbar">
