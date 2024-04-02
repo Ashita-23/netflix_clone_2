@@ -30,7 +30,7 @@ const BackdropCard = ()=>{
 
     // }
     // useEffect(()=>{getData()},[])
-    // if(TrailerKey===null) return 
+    if(!backdropData) return <p>please wait................</p>
    
     return(<div className="h-[auto]">
     <iframe className=" w-screen aspect-video " src={"https://www.youtube.com/embed/d2OONzqh2jk?&autoplay=1&mute=1&loop=1" }
