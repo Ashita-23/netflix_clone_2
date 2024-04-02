@@ -17,6 +17,7 @@ export const options = {
     export const POPULER_API = " https://api.themoviedb.org/3/movie/popular"
     export const TOP_RATED = "https://api.themoviedb.org/3/movie/top_rated"
     export const UP_COMING = "https://api.themoviedb.org/3/movie/upcoming"
+    export const LATEST_API = "https://api.themoviedb.org/3/movie/latest"
   
     export const search_Movie = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1'
   

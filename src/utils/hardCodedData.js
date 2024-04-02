@@ -61,25 +61,25 @@ export const footerSecCD=[
         title:"Enjoy on your TV",
         text:" Watch on smart TVs , PlayStations , Xbos , Chromecast , AppleTV , Blu-ray players and more.",
         Icon:"fa-solid fa-tv",
-        key:"00A1"
+        key:"00a1"
     },
     {
         title:"Download your show to watch offline",
         text:" Save your favourites easily and always have something to watch.",
         Icon:"fa-solid fa-arrow-down",
-        key:"00A2"
+        key:"00b2"
     },
     {
         title:"Watch everywhere ",
         text:" Stream unlimited movies and TV shows on your phone,tablet,laptop and TV.",
         Icon:"fa-solid fa-video",
-        key:"00A3"
+        key:"00c3"
     },
     {
         title:"Create profiles for kids ",
         text:" Sent kids on adventures with their favourit characters in a space made just for them-free with your membership.",
         Icon:"fa-solid fa-user-astronaut",
-        key:"00A4"
+        key:"00d4"
     },
 ]
 

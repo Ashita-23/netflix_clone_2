@@ -16,7 +16,7 @@ const [Movie_dataBySearch,setMovie_dataBySearch]=useState()
  useEffect(()=>{
     getData()
 },[search])
-
+//  xxsm: xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: */
 
 const getData = async ()=>{
     const Api = await fetch("https://api.themoviedb.org/3/search/movie?query="+search+"&include_adult=false&language=en-US&page=1",options)
@@ -26,27 +26,32 @@ const getData = async ()=>{
     setMovie_dataBySearch(Json?.results.slice(0,5))
 }
 
+let sectionStyle = {
+    width: "100%",
+    // height: "400px",
+    backgroundImage: `url(${netflixCover})`,
+    backgroundRepeat:" no-repeat",
+    backgroundSize: "cover",
+  };
+// backgroundImage: `url(${Background})`
 if(!Movie_dataBySearch) return null
-    return(  <>
-            <div>
-                    <img alt="Cover" src={netflixCover} className="w-screen"></img>
-                   <form onSubmit={(e)=>e.preventDefault()} className=" w-6/12 flex py-4 px-2 items-center justify-center absolute -mt-[45%] ml-[18%]  bg-black rounded-md ">
-                    <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none"/>
-                    <button className=" cursor-pointer px-4 py-2 text-white text-md bg-red-600 rounded-r-md" onClick={()=>setSearch(searchText.current.value)}>Search</button>
+    return(<div className="h-[100vh] flex justify-center items-center"  style={sectionStyle}>
+                    {/* <img alt="Cover" src={netflixCover} className="w-screen xxsm:h-[100vh] w xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:" ></img> */}
+                    <div className="flex flex-col bg-black bg-opacity-80   w-[90%] h-[80%] z-50 xxsm:h-[85%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
+                   <form onSubmit={(e)=>e.preventDefault()} className="  w-12/12 flex relative py-4 px-2 items-center justify-center bg-black xxsm:w-[100%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
+                    <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none xxsm:text-[0.9rem]"/>
+                    <button className=" cursor-pointer px-4 py-2 text-white text-md bg-red-600 rounded-r-md    xxsm:text-[0.9rem] sm: md: lg:"
+                 onClick={()=>setSearch(searchText.current.value)}>Search</button>
                    </form>
-                  { !search ? " ": <div className="border border-red-700 w-6/12 h-[60%] flex flex-col  p-[0.5rem] pt-[6rem] justify-center absolute -mt-[38%] ml-[18%]  bg-black rounded-md overflow-y-scroll no-scrollbar ">
-                 
-                 {
-                    Movie_dataBySearch.length === 0  ? <SearchErrorCards/>
-               :
-                    Movie_dataBySearch?.map((data)=>  <SearchCards data={data}/>)
-                   }
-                   </div>}
-                   
-            </div>
-        </>
-    )
-}
+                  { !search ? " ":<div className=" bg-black h-[90%]">
+                    {Movie_dataBySearch.length === 0  ? <SearchErrorCards/>: 
+                    <div className=" w-[100%] h-[100%] flex flex-wrap  p-[0.5rem] justify-center  bg-black  overflow-y-scroll no-scrollbar xxsm: ">
+                   { Movie_dataBySearch?.map((data)=><SearchCards data={data}/>)}</div>}
+                    
+                  </div>}
+                  </div>
+                  </div>
+                 )}
 
 
 export default DoSearchPage

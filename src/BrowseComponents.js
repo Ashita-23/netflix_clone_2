@@ -6,7 +6,7 @@ import Navigation from "./Components/header"
 const BrowseComponent = ()=>{
       const togglePage = useSelector((store)=>store.Search_Toggel.IsShow)
 //   console.log(togglePage,"togglePage")
-    return(<div className=" overflow-scroll h-[100vh] relative">
+    return(<div className=" overflow-scroll h-[100vh] pb-2 relative bg-black">
     <Navigation></Navigation>
 {
   togglePage? <Browse></Browse>: <DoSearchPage></DoSearchPage>

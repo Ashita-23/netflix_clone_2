@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { AddShowSeries } from "../RStore/showSeries"
 
 
+
 const Tv_Shows = ()=>{
   const dispatch=useDispatch()
 const TV_Series = useTV_Series() 
@@ -21,8 +22,8 @@ const Series_Id = useSelector((store)=>store.Series_Id.id)
 console.log(Series_Id,"S id")
 
 useEffect(()=>{ 
-    if(Series_Id ){
-  setShowSeriesToggle()}
+    if(Series_Id.length===0){return}
+  setShowSeriesToggle()
 },[Series_Id])
 
 const setShowSeriesToggle = ()=>{
@@ -33,14 +34,12 @@ const setShowSeriesToggle = ()=>{
 // if(Series_Id===null) return
 
     return(<>
-  <div className="border border-red-500 h-[auto] w-[full] overflow-scroll no-scrollbar">
+  <div className=" h-[auto] w-[full] overflow-scroll no-scrollbar">
   {/* <Navigation></Navigation> */}
   <TvBackdropCard backdropData={TV_Series}/>
-  <div className="border bg-black  ">
-    <div className="p-2 -mt-[14%] z-40 absolute">
+  <div className=" bg-black relative">
+    <div className="p-2 ">
                 <TvSeriesCards  NowData={ TV_Series?.results} titleText={TvCardsTitle[0]} key={TV_Series?.results?.id} ></TvSeriesCards> 
-                </div> 
-               <div className=" mt-[7rem]">
                 <TvSeriesCards  NowData={TV_SeriesPopular?.results} titleText={TvCardsTitle[1]} key={TV_SeriesPopular?.results?.id} ></TvSeriesCards>
                <TvSeriesCards  NowData={TV_SeriesOnAir?.results} titleText={TvCardsTitle[2]} key={TV_SeriesOnAir?.results?.id}></TvSeriesCards>
                <TvSeriesCards  NowData={TV_SeriesTop_rated?.results} titleText={TvCardsTitle[3]} key={TV_SeriesTop_rated?.results?.id}></TvSeriesCards>
@@ -51,7 +50,7 @@ const setShowSeriesToggle = ()=>{
   </div>
   
 {
-    Show_Series ? <div className="border border-green-700 h-[auto] p-10 w-[full] sticky bg-black -mt-[45%] flex justify-center items-center z-[40] ">
+    Show_Series ? <div className="border absolute  h-[25rem] w-[100%] mt-[-94vh]  p-4 flex justify-center ">
            <TvSeries/>
         </div>  : " "
 }
