@@ -38,8 +38,8 @@ let sectionStyle = {
 if(!Movie_dataBySearch) return null
     return(  <div className="h-[100vh] flex justify-center items-center"  style={sectionStyle}>
     {/* <img alt="Cover" src={netflixCover} className="w-screen xxsm:h-[100vh] w xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:" ></img> */}
-    <div className="flex flex-col bg-black bg-opacity-80   w-[90%] h-[80%] z-50 xxsm:h-[85%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
-   <form onSubmit={(e)=>e.preventDefault()} className=" w-12/12 flex relative py-4 px-2 items-center justify-center bg-black xxsm:w-[100%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
+    <div className="flex flex-col bg-black bg-opacity-80   w-[90%] h-[80%]  xxsm:h-[85%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
+   <form onSubmit={(e)=>e.preventDefault()} className=" w-12/12 flex  py-4 px-2 items-center justify-center bg-black xxsm:w-[100%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
     <input type="text" ref={searchText} placeholder="What do you want to watch today?" className="w-10/12 py-2 px-4 text-md  rounded-l-md outline-none xxsm:text-[0.9rem]"/>
     <button className=" cursor-pointer px-4 py-2 text-white text-md bg-red-600 rounded-r-md    xxsm:text-[0.9rem] sm: md: lg:"
  onClick={()=>setSearch(searchText.current.value)}>Search</button>
