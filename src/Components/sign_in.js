@@ -78,7 +78,7 @@ const SignIn = () => {
     };
   
 
-    return   (<div className="relative h-[100vh] w-full overflow-scroll no-scrollbar ">
+    return   (<div className="relative h-[100vh] w-full overflow-scroll no-scrollbar " style={sectionStyle}>
       
          <nav className=" w-[100%]  bg-gradient-to-b from-black  h-[4rem] px-4  z-20 flex justify-between items-center fixed xxsm:h-[3rem] xsm:h-[3rem]"> 
         <span className="text-red-600 text-center ml-[0.5rem]  font-bold text-[2rem] tracking-wider xxsm:text-xl ml-[0.0rem] xsm:text-xl ml-[0.0rem] sm: md:">CHALCHITRA</span> 
