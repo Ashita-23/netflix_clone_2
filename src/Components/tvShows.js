@@ -36,7 +36,7 @@ const Show_Series = useSelector((store)=>store.Series_Id.IsSeries)
     return(<>
   <div className=" h-[auto] w-[full] overflow-scroll no-scrollbar">
   {/* <Navigation></Navigation> */}
-  <TvBackdropCard backdropData={TV_Series}/>
+  <TvBackdropCard />
   <div className=" bg-black relative">
     <div className="p-2 ">
                 <TvSeriesCards  NowData={ TV_Series?.results} titleText={TvCardsTitle[0]} key={TV_Series?.results?.id} ></TvSeriesCards> 

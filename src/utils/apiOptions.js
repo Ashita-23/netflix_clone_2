@@ -3,8 +3,9 @@ export const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization:process.env.REACT_APP_NetFlix_Api_key
-    
+      Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZWRjMjEwYzA3MzI5Zjk1ZDYwNTdlOGFjZmY5NjMyMSIsInN1YiI6IjY1ZTk4YWJhYWY5NTkwMDE4NGRjZmJkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wY9ipfnxNBzZ4i0-lF0Pj3xrRwNdWshCQ1u61oAe1TE'
+      // Authorization:process.env.REACT_APP_NetFlix_Api_key
+      
 
     }
   
