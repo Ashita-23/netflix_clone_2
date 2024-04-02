@@ -10,11 +10,14 @@ const BackdropCard = ()=>{
     // console.log(backdropData,"backdropData")
     
     const getBdData = async ()=>{
+        try{
         const Data = await fetch(NOW_PLAYING_API , options)
         const JSON = await Data.json()
         // console.log(JSON,"BDJSON")
-        setbackdropData(JSON) }
-        
+        setbackdropData(JSON)}catch(e){
+            console.log(e)
+        }
+    }
             useEffect(()=>{
                 getBdData()
             },[])

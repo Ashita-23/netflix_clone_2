@@ -82,7 +82,7 @@ const SignIn = () => {
       
          <nav className=" w-[100%]  bg-gradient-to-b from-black  h-[4rem] px-4  z-20 flex justify-between items-center fixed xxsm:h-[3rem] xsm:h-[3rem]"> 
         <span className="text-red-600 text-center ml-[0.5rem]  font-bold text-[2rem] tracking-wider xxsm:text-xl ml-[0.0rem] xsm:text-xl ml-[0.0rem] sm: md:">CHALCHITRA</span> 
-         <button  className="text-white bg-slate-400 px-4 py-1 rounded-md xxsm:text-[0.9rem]" onClick={()=>dispatch(AddSignIn(true))}> <i className="fa-regular fa-face-smile"></i> {IsIN_UP?" Sign in":"Sign up"}</button> 
+         <button  className="text-white bg-slate-400 px-4 py-1 rounded-md xxsm:text-[0.9rem]" onClick={()=>dispatch(AddSignIn(true))}>{IsIN_UP?" Sign in":"Sign up"}</button> 
          </nav>  
          <div className="h-[100vh] flex flex-col justify-center items-center"  style={sectionStyle}>
             {/* <img src={netflixCover}  alt="background image" className="w-screen xxsm:h-[50vh] xsm:h-[60vh] sm:h-[60vh] md:h-[70vh] lg:w-screen  xl:w-screen 2xl:w-screen 3xl:w-screen 4xl:w-screen 5xl:w-screen  6xl:w-screen   "/> */}

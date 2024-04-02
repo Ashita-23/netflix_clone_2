@@ -1,13 +1,9 @@
 import './App.css';
 import {  RouterProvider, createBrowserRouter} from 'react-router-dom';
 import SignIn from './Components/sign_in';
-// import Navigation from './Components/Browse_Components/header';
 import BrowseComponent from './BrowseComponents';
-// import TvComponets from './TvComponents';
-// import Watch_List from ;
 import { lazy , Suspense} from 'react';
 
-// import Navigation from './Components/Browse_Components/header';
 
 
 

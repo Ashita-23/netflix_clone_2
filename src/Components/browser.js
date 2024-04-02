@@ -38,20 +38,28 @@ const Browse = ()=>{
     },[])
 
     const getPlayingData = async ()=>{
+        try{
         const Data = await fetch(NOW_PLAYING_API , options)
         const JSON = await Data.json()
-
-        setNowPlayingApi(JSON) }
+        setNowPlayingApi(JSON) }catch(e){
+            console.log(e)
+        }}
 
             const getTopRatedData = async ()=>{
+                try{
                 const Data = await fetch(TOP_RATED , options)
                 const JSON = await Data.json()
-                setNowTop_RatedApi(JSON) }
+                setNowTop_RatedApi(JSON) }catch(e){
+                    console.log(e)
+                }}
 
                 const getUpComingData = async ()=>{
+                    try{
                     const Data = await fetch(UP_COMING , options)
                     const JSON = await Data.json()
-                    setNowUp_ComingApi(JSON) }
+                    setNowUp_ComingApi(JSON) }catch(e){
+                        console.log(e)
+                    }}
     useEffect(()=>{ 
         if(Movie_Id.length===0){return}
         setShowMovieToggle()

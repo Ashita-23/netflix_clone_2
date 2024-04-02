@@ -15,16 +15,20 @@ const My_Watch_List = ()=>{
     const my_TvListId = useSelector((store)=>store.My_Watch_List.TvlistId)
 
 const getGenreMvid= async()=>{
-    const api = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en',options)
+    try{const api = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en',options)
     const result = await api.json()
     const resultId = result.genres.slice(6,10)
-    dispatch(AddToMoviesListId(resultId))
+    dispatch(AddToMoviesListId(resultId))}catch(e){
+        console.log(e)
+    }
 }
 const getGenreTvid= async()=>{
-    const api = await fetch('https://api.themoviedb.org/3/genre/tv/list?language=en',options)
+    try{const api = await fetch('https://api.themoviedb.org/3/genre/tv/list?language=en',options)
     const result = await api.json()
     const resultId = result?.genres.slice(4,8)
-    dispatch(AddToTvListId(resultId))
+    dispatch(AddToTvListId(resultId))}catch(e){
+        console.log(e)
+    }
 }
 const  MoviesRecomendation= async(dataId)=>{
     const MR_API= await fetch('https://api.themoviedb.org/3/movie/'+dataId+'/recommendations?language=en-US&page=1',options)
@@ -49,17 +53,23 @@ useEffect(()=>{
 
 
 const getCallMidArray = async () => {
+    try{
     const callMidApi= my_MovieListId&&my_MovieListId?.map((data)=>MoviesRecomendation(data.id)) 
     const resultsArray = await Promise.all(callMidApi)
     const filterDataItem = resultsArray.filter((data)=>data?.results?.length>0)
-    setMovieListdata(filterDataItem)
+    setMovieListdata(filterDataItem)}catch(e){
+        console.log(e)
+    }
 }
 
 const getCallTidArray = async () => {
+    try{
     const callTidApi= my_TvListId&&my_TvListId?.map((data)=>TvSeriesRecomendation(data.id)) 
     const resultsArray = await Promise.all(callTidApi)
     const filterDataItem = resultsArray.filter((data)=>data?.results?.length>0)
-    setTvListdata(filterDataItem)
+    setTvListdata(filterDataItem)  }catch(e){
+        console.log(e)
+    }
     
 }
 
