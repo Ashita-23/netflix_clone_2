@@ -4,9 +4,9 @@ import NowPlayingCards from "./videoCards"
 // import { options } from "../utils/apiOptions"
 import BackdropCard from "./backbrop"
 import Movies from "./Movies"
-import { useSelector,useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { AddShowMovie } from "../RStore/showMovie"
+// import { AddShowMovie } from "../RStore/showMovie"
 // import Mt_ShimmerCards from "./shimmers/SMCards" 
 import {NOW_PLAYING_API,TOP_RATED,UP_COMING ,options} from "../utils/apiOptions"
 // import { AddToMoviesList } from "../RStore/myList"
@@ -16,18 +16,10 @@ import {NOW_PLAYING_API,TOP_RATED,UP_COMING ,options} from "../utils/apiOptions"
 
 
 const Browse = ()=>{
-    const Show_Movie=useSelector((store)=>store.Show_Movie.IsMovie)
-    const Movie_Id=useSelector((store)=>store.Movie_Id.id)
-   
-    // console.log(Show_Movie,"Show_Movie")
-    // console.log(Movie_Id,"MovieId")
+    const ShowMovie=useSelector((store)=>store.Movie_Id.addShowMovie)
+    console.log(ShowMovie, "ShowM")
     const [nowPlayingApi,setNowPlayingApi] =useState()
-    // console.log(nowPlayingApi,"nowPlayingApi")
-    // console.log(nowLatestApi,"nowLatestApi")
     const [nowTop_RatedApi,setNowTop_RatedApi] = useState()
-    const dispatch = useDispatch()
-
-    
     const [nowUp_ComingApi,setNowUp_ComingApi] = useState()
 
 
@@ -60,15 +52,15 @@ const Browse = ()=>{
                     setNowUp_ComingApi(JSON) }catch(e){
                         console.log(e)
                     }}
-    useEffect(()=>{ 
-        if(Movie_Id.length===0){return}
-        setShowMovieToggle()
-    },[Movie_Id])
+    // useEffect(()=>{ 
+    //     if(Movie_Id.length===0){return}
+    //     setShowMovieToggle()
+    // },[Movie_Id])
 
     
-     const setShowMovieToggle = ()=>{
-        dispatch(AddShowMovie())
-        }
+    //  const setShowMovieToggle = ()=>{
+    //     dispatch(AddShowMovie())
+    //     }
 
 
 
@@ -78,14 +70,13 @@ const Browse = ()=>{
      <div className=" bg-black relative p-2">
     {/* <div className=" "> */}
            <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results?.id}></NowPlayingCards>
-            {/* <NowPlayingCards  NowData={ nowLatestApi?.results} titleText={videoCardsTitle[1]} key={nowLatestApi?.results.id} ></NowPlayingCards> */}
             <NowPlayingCards  NowData={nowTop_RatedApi?.results} titleText={videoCardsTitle[2]} key={nowTop_RatedApi?.results?.id}></NowPlayingCards>
             <NowPlayingCards  NowData={nowUp_ComingApi?.results} titleText={videoCardsTitle[3]} key={nowUp_ComingApi?.results?.id}></NowPlayingCards>
             {/* </div>  */}
         </div> 
 </div>
 {
-    Show_Movie ? <div className="border absolute  h-[25rem] w-[100%] mt-[-80vh]  p-4 flex justify-center ">
+    ShowMovie ? <div className="border absolute  h-[25rem] w-[100%] mt-[-80vh]  p-4 flex justify-center ">
             <Movies/>
         </div>  : " "
 }

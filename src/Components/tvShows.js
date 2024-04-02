@@ -1,35 +1,35 @@
-import { useEffect} from "react"
+
 import { useTV_Series,useTV_SeriesOnAir,useTV_SeriesPopular,useTV_SeriesTop_rated } from "../utils/useProjectApi"
 // import Navigation from "./header"
 import TvBackdropCard from "./tvBackDrop"
 import TvSeriesCards from "./TvSeriesCards"
 import TvSeries from "./Searies"
 import {TvCardsTitle} from "../utils/hardCodedData"
-import { useDispatch, useSelector } from "react-redux"
-import { AddShowSeries } from "../RStore/showSeries"
+import {  useSelector } from "react-redux"
+
 
 
 
 const Tv_Shows = ()=>{
-  const dispatch=useDispatch()
+  // const dispatch=useDispatch()
 const TV_Series = useTV_Series() 
 const TV_SeriesOnAir = useTV_SeriesOnAir()
 const TV_SeriesPopular = useTV_SeriesPopular()
 const TV_SeriesTop_rated = useTV_SeriesTop_rated()
-const Show_Series =useSelector((store)=>store.Show_Series.IsSeries)
-console.log(Show_Series,"Show series..")
-const Series_Id = useSelector((store)=>store.Series_Id.id)
-console.log(Series_Id,"S id")
+// const  =useSelector((store)=>store.Show_Series.IsSeries)
+// console.log(ShowSeries,"Show series..")
+const Show_Series = useSelector((store)=>store.Series_Id.IsSeries)
+// console.log(Series_Id,"S id")
 
-useEffect(()=>{ 
-    if(Series_Id.length===0){return}
-  setShowSeriesToggle()
-},[Series_Id])
+// useEffect(()=>{ 
+//     if(Series_Id.length===0){return}
+//   setShowSeriesToggle()
+// },[Series_Id])
 
-const setShowSeriesToggle = ()=>{
+// const setShowSeriesToggle = ()=>{
 
-      dispatch(AddShowSeries())
-  }
+//       dispatch(AddShowSeries())
+//   }
 
 // if(Series_Id===null) return
 

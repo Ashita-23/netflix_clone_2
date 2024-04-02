@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react"
 import { options } from "../utils/apiOptions"
 import { useDispatch, useSelector } from "react-redux"
-import {AddShowSeries} from "../RStore/showSeries"
+import {AddShowSeries} from "../RStore/seriesId"
 import SuggestionCards from "./SuggetionCards"
 import EmptySuggestionImg from "../assets/suggestion.png"
 

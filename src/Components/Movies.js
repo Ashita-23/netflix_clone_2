@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react"
 import { options } from "../utils/apiOptions"
 import { useDispatch, useSelector } from "react-redux"
-import {AddShowMovie} from "../RStore/showMovie"
+import {addShowMovie} from "../RStore/movieId"
 import SuggestionCards from "./SuggetionCards"
 import EmptySuggestionImg from "../assets/suggestion.png"
 
@@ -46,7 +46,7 @@ const dispatch = useDispatch()
         <p className="text-white text-xl">trailer is not ready</p></div>}
     </div>
         <div className="   border border-green-400 text-gray-400  bg-black flex flex-col justify-center  p-2">
-        <button className="cursor-pointer border border-green-400 text-red-500 font-semibold  text-2xl text-end xxsm:text-[1.2rem] xsm:text-[1.4rem] sm:text-[1.4rem] px-1" onClick={()=>dispatch(AddShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
+        <button className="cursor-pointer border border-green-400 text-red-500 font-semibold  text-2xl text-end xxsm:text-[1.2rem] xsm:text-[1.4rem] sm:text-[1.4rem] px-1" onClick={()=>dispatch(addShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
         <p className="text-white text-md xxsm:text-[0.9rem] xsm:text-[1rem]">{Mdetails?.title}</p>
         <p className="text-white text-sm xxsm:text-[0.8rem] xsm:text-[0.9rem]">{Mdetails?.tagline}</p>
         <div className="flex xxsm:text-[0.8rem]"><span className="mr-1 " >{Mdetails?.genres[0]?.name}</span><span className="mx-1 ">{Math.round(Mdetails?.runtime/60)}h</span><span className="mx-1 text-green-500">{Math.round(Mdetails?.vote_average)}Rating</span>

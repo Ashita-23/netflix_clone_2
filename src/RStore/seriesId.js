@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const SeriesId = createSlice({
     name:"Series Id",
     initialState:{
-        id:[]
+        id:[],
+        IsSeries:false
     },
     reducers:{
         addSeriesId:(state,action)=>{
@@ -12,12 +13,15 @@ const SeriesId = createSlice({
                 state.id.shift()
               }
          state.id.push(action.payload)
-//   console.log(iterms,"from slice")
-        
-        }
+//   console.log(iterms,"from slice"
+        },
+        AddShowSeries:(state)=>{
+            state.IsSeries= !state.IsSeries
+        },
+       
     }
 })
 
 
-export const {addSeriesId}=SeriesId.actions
+export const {addSeriesId,AddShowSeries}=SeriesId.actions
 export default SeriesId.reducer

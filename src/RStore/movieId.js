@@ -4,7 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const MovieId = createSlice({
     name:"movie id",
     initialState:{
-        id:[]
+        id:[],
+       addShowMovie:false
     },
     reducers:{
         addMovieID:(state,action)=>{
@@ -14,10 +15,13 @@ const MovieId = createSlice({
          state.id.push(action.payload)
 //   console.log(iterms,"from slice")
         
+        },
+        addShowMovie:(state,action)=>{
+        state.addShowMovie=action.payload
         }
     }
 })
 
 
-export const {addMovieID}=MovieId.actions
+export const {addMovieID, addShowMovie }=MovieId.actions
 export default MovieId.reducer
