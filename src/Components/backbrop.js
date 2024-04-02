@@ -4,11 +4,7 @@ import { NOW_PLAYING_API } from "../utils/apiOptions"
 
 
 const BackdropCard = ()=>{
-    
-    
     const [backdropData,setbackdropData]=useState()
-    console.log(backdropData.results ,"backdropData")
-    
     const getBdData = async ()=>{
         try{
         const Data = await fetch(NOW_PLAYING_API , options)
