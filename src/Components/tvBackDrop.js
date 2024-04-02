@@ -16,7 +16,7 @@ const TvBackdropCard = ({ backdropData})=>{
         setTrailerKey(Trailer?.key)
     }
     useEffect(()=>{getData()},[])
-    if(TrailerKey===null) return
+    if(!backdropData) return <p>please wait for api data to come...</p>
     return(<div>
     <iframe className=" w-screen aspect-video  " src={"https://www.youtube.com/embed/2ZtG5Ba6iT0?&autoplay=1&mute=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
