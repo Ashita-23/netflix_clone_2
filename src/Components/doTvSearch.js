@@ -35,7 +35,7 @@ let sectionStyle = {
     backgroundSize: "cover",
   };
 
-if(!Movie_dataBySearch) return null
+if(!Movie_dataBySearch) return <p></p>
     return(  <div className="h-[100vh] flex justify-center items-center"  style={sectionStyle}>
     {/* <img alt="Cover" src={netflixCover} className="w-screen xxsm:h-[100vh] w xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:" ></img> */}
     <div className="flex flex-col bg-black bg-opacity-80   w-[90%] h-[80%]  xxsm:h-[85%] xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">

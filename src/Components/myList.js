@@ -1,18 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
 import { POSTER_API, options } from "../utils/apiOptions"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import ListCardsShimmer from "../Components/shimmers/listIemsShimmer"
 import {AddToMoviesListId,AddToTvListId} from "../RStore/myList"
+import {AddMoviesListData,AddTvsListData} from "../RStore/mylistData"
 
 const My_Watch_List = ()=>{
     const dispatch = useDispatch()
-    const my_MovieListId = useSelector((store)=>store.My_Watch_List.MovieslistId)
-    const [MovieListdata,setMovieListdata]=useState()
-    // console.log(MovieListdata,"///")
-    const [TvListdata,setTvListdata]=useState()
-    console.log(TvListdata,"///")
+    const my_MovieListId = useSelector((store)=>store.My_List_id_Data.MovieslistId)
+    const my_TvListId = useSelector((store)=>store.My_List_id_Data.TvlistId)
+    const TvListdata = useSelector((store)=>store.My_List_Data.Tvs_List_data)
+    const MovieListdata = useSelector((store)=>store.My_List_Data.Movies_List_data)
+    console.log(my_MovieListId,"my_MovieListId")
+    console.log(my_TvListId,"my_TvListId")
+    console.log(MovieListdata,"MovieListdata")
+console.log(TvListdata,"TvlistDAta")
 
-    const my_TvListId = useSelector((store)=>store.My_Watch_List.TvlistId)
 
 const getGenreMvid= async()=>{
     try{const api = await fetch('https://api.themoviedb.org/3/genre/movie/list?language=en',options)
@@ -46,10 +49,13 @@ useEffect(()=>{
    !my_MovieListId && getGenreMvid()
    !my_TvListId && getGenreTvid()
 //   if(MovieListdata?.length>0)
-!MovieListdata && getCallMidArray()
-    !TvListdata && getCallTidArray()
+
 //   }
-},[MovieListdata,TvListdata])
+},[])
+useEffect(()=>{
+    !MovieListdata &&  getCallMidArray()
+    !TvListdata && getCallTidArray()
+},[])
 
 
 const getCallMidArray = async () => {
@@ -57,7 +63,7 @@ const getCallMidArray = async () => {
     const callMidApi= my_MovieListId&&my_MovieListId?.map((data)=>MoviesRecomendation(data.id)) 
     const resultsArray = await Promise.all(callMidApi)
     const filterDataItem = resultsArray.filter((data)=>data?.results?.length>0)
-    setMovieListdata(filterDataItem)}catch(e){
+   dispatch(AddMoviesListData(filterDataItem))}catch(e){
         console.log(e)
     }
 }
@@ -67,12 +73,14 @@ const getCallTidArray = async () => {
     const callTidApi= my_TvListId&&my_TvListId?.map((data)=>TvSeriesRecomendation(data.id)) 
     const resultsArray = await Promise.all(callTidApi)
     const filterDataItem = resultsArray.filter((data)=>data?.results?.length>0)
-    setTvListdata(filterDataItem)  }catch(e){
+    dispatch(AddTvsListData(filterDataItem))  }catch(e){
         console.log(e)
     }
     
 }
 
+// if(!MovieListdata ) return <p>please wait tring to fecth data.</p>
+// if(!TvListdata ) return <p>please wait tring to fecth data.</p>
     return(<div className=" bg-black h-[100vh] w-[full] flex justify-center pt-[5rem] pb-[0.5rem] overflow-scroll no-scrollbar">
     <div className="  h-[auto] w-11/12 xxsm:w-[100%] xsm:w-[100%] sm:w-[100%]  md: lg: xl 2xl:3xl:4xl:5xl:6xl:  overflow-scroll no-scrollbar ">
         { !MovieListdata ? <ListCardsShimmer/>:<div className=" p-4 my-2  bg-slate-800 bg-opacity-80 ">
@@ -82,6 +90,7 @@ const getCallTidArray = async () => {
                 MovieListdata && MovieListdata?.map((data,index)=><List_Cards_Outer data={data} heading={my_MovieListId[index]} />)
               } 
                </div>
+               {/* MovieListdata */}
             </div> }
             {/* <ListCardsShimmer/> */}
           {!TvListdata? <ListCardsShimmer/>:<div className="p-4 my-2 bg-slate-500 bg-opacity-80">
@@ -95,8 +104,6 @@ const getCallTidArray = async () => {
             </div>
     </div>)
 }
-
-
 export const List_Cards_Outer = ({data,heading})=>{
     return(<div className="my-1">
     <p className="text-[1.3rem] text-white px-[0.6rem] xxsm:text-[0.9rem] xsm:text-[0.9rem] sm:text-[1.1rem] md:text-[1.2rem] lg-text-[1.2rem]">{ heading?.name}</p>
