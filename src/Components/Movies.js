@@ -39,14 +39,14 @@ const dispatch = useDispatch()
     }
 
 
-    return(<div className=" border border-red-500  w-[26rem] xxsm:w-[100%] xsm:w-[20rem] sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
-    <div className=" border-red-500 ">
-        <div className=" flex justify-center border border-red-400 w-full h-[12rem]"> 
+    return(<div className="  w-[26rem] xxsm:w-[100%] xsm:w-[20rem] sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
+    <div className=" ">
+        <div className=" flex justify-center  border-b-[0.1rem] border-slate-700 w-full h-[12rem]"> 
       { MTrailerKey? <MovieCard data={MTrailerKey}/>: <div className="w-[100%] bg-black flex justify-center items-center">
         <p className="text-white text-xl">trailer is not ready</p></div>}
     </div>
-        <div className="   border border-green-400 text-gray-400  bg-black flex flex-col justify-center  p-2">
-        <button className="cursor-pointer border border-green-400 text-red-500 font-semibold  text-2xl text-end xxsm:text-[1.2rem] xsm:text-[1.4rem] sm:text-[1.4rem] px-1" onClick={()=>dispatch(addShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
+        <div className="    text-gray-400  bg-black flex flex-col justify-center  p-2">
+        <button className="cursor-pointer  text-red-500 font-semibold  text-2xl text-end xxsm:text-[1.2rem] xsm:text-[1.4rem] sm:text-[1.4rem] px-1" onClick={()=>dispatch(addShowMovie(false))}><i className="fa-solid fa-xmark"></i></button>
         <p className="text-white text-md xxsm:text-[0.9rem] xsm:text-[1rem]">{Mdetails?.title}</p>
         <p className="text-white text-sm xxsm:text-[0.8rem] xsm:text-[0.9rem]">{Mdetails?.tagline}</p>
         <div className="flex xxsm:text-[0.8rem]"><span className="mr-1 " >{Mdetails?.genres[0]?.name}</span><span className="mx-1 ">{Math.round(Mdetails?.runtime/60)}h</span><span className="mx-1 text-green-500">{Math.round(Mdetails?.vote_average)}Rating</span>
@@ -81,12 +81,12 @@ const Movie_Suggetions = ({MovieId})=>{
         // console.log(Json,"suggestion m api")
         setSuggestion(Json)
     }
-    return(!suggestion)?( <div className="flex flex-col justify-center items-center h-[17rem]  bg-black border border-yellow-500">
+    return(!suggestion)?( <div className="flex flex-col justify-center items-center h-[17rem]  bg-black ">
     <img src={EmptySuggestionImg} alt="Empty img" className="h-[200px] drop-shadow-2xl xxsm:h-[180px] xsm:h-[180px] sm:h-[190px] "></img>
-    <p className="text-md text-white font-bold ">Zero suggestions...</p></div>)
+    <p className="text-md text-white font-bold ">Loading suggestions...</p></div>)
     :(<div className=" text-white  ">
         <p className="text-lg text-white p-2 bg-black ">More like this</p>
-       <div className=" flex flex-wrap  justify-evenly border border-pink-400 h-[24rem] pt-2  overflow-x-scroll no-scrollbar bg-black ">
+       <div className=" flex flex-wrap  justify-evenly  h-[24rem] pt-2  overflow-x-scroll no-scrollbar bg-black ">
         {
             suggestion?.results &&  suggestion?.results?.map((data)=> <SuggestionCards data={data}/>)
         }
@@ -95,11 +95,6 @@ const Movie_Suggetions = ({MovieId})=>{
     </div>)
 }
 
-// {
-    // <div className="flex flex-col justify-center items-center h-[20rem]  bg-slate-600 border border-red-500">
-    //    <img src={EmptySuggestionImg} alt="Empty img" className="h-[250px] drop-shadow-2xl"></img>
-    //    <p className="text-lg text-white">Zero suggestions...</p></div>
-    // xxsm:h-[14rem] xsm:h-[14rem] sm:h-[14rem] md:h-[14rem] lg:h-[14rem] xl:h-[14rem] 2xl:h-[14rem] 3xl:h-[14rem] 4xl:h-[14rem] 5xl:h-[14rem] 6xl:h-[15rem]
-// }
+
 
 export default Movies
