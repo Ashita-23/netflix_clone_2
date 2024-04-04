@@ -1,4 +1,4 @@
-import My_Watch_List from "./Components/myList"
+import My_Watch_List from "./Components/recomendationList"
 import TvNav from "./Components/nav"
 
 
