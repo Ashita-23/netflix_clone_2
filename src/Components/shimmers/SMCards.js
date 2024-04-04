@@ -17,7 +17,16 @@ export default Mt_ShimmerCards
 
 // <img src={Loading_img} alt="poster" className="w-[150px] h-[180px] border border-red-600 mx-2" key={Math.random()*4}></img>
 export const CardsImgShimmer = ()=>{
-  return(<>
-     {Array(18).fill("").map(()=>{return(<img src={Loading_img} alt="poster" className="w-[150px] h-[180px] border border-red-600 mx-2" key={Math.random()*4}></img>)})}
+  return(<> <div className="bg-slate-900 m-1 flex  justify-evenly items-center h-[10rem] overflow-scroll no-scrollbar" key={"x542wr"}> 
+        {Array(20).fill("").map(()=><div className="animate-pulse w-[130px] h-[140px] m-2 bg-slate-700 xxsm:w-[90px]  xsm:w-[90px] sm:w-[100px] md:w-[120px] lg:w-[120px] xl:w-[120px] " key={Math.random()*"2a"}></div>)}
+            {/* <div className="w-[130px] h-[150px] mx-2 bg-slate-400 xxsm:w-[80px]  xsm:w-[90px] sm:w-[100px] md:w-[120px] lg:w-[120px] xl:w-[120px] "></div> */}
+        </div>
   </>)
+}
+
+
+export const IframeShimmer = ()=>{
+  return(<div className="border border-slate-800">
+      <div className="w-screen aspect-video bg-slate-900 animate-pulse" ></div>
+  </div>)
 }
