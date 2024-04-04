@@ -51,7 +51,7 @@ export const SmallHeader=()=>{
   },[])
   return(<><nav className="w-[100%]  fixed h-20 px-2  bg-gradient-to-b from-black  flex justify-around items-center z-50 xxsm:h-[2rem] xsm:h-[2.2rem] sm:justify-center md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:">
   <div className=" flex items-center w-6/12  xxsm:w-[60%] xsm:w-[60%] sm:w-[60%] md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl ">
-  <button className=" text-white text-3xl xxsm:text-[0.9rem] xsm:text-[1rem] sm:text-[1.2rem] ml-[0.6rem] md:text-[1.2rem]  lg:text-[1.2rem] xl:text-[1.2rem] 2xl:text-[1.2rem] 3xl:text-[1.3rem] 4xl:text-[1.3rem] 5xl:text-[1.3rem] 6xl:text-[1.3rem] " onClick={()=>setShowSideBar(!ShowSideBar)}><i className="fa-solid fa-bars"></i></button>
+  <button className="outline-none text-white text-3xl xxsm:text-[0.9rem] xsm:text-[1rem] sm:text-[1.2rem] ml-[0.6rem] md:text-[1.2rem]  lg:text-[1.2rem] xl:text-[1.2rem] 2xl:text-[1.2rem] 3xl:text-[1.3rem] 4xl:text-[1.3rem] 5xl:text-[1.3rem] 6xl:text-[1.3rem] " onClick={()=>setShowSideBar(!ShowSideBar)}><i className="fa-solid fa-bars"></i></button>
   <span className="text-red-600 text-[1.9rem] text-center ml-[0.5rem]  font-bold tracking-wider xxsm:text-[1rem] xsm:text-[1.1rem] sm:text-[1.2rem]  ">CHALCHITRA</span>
   </div>
   <div className=" w-4/12 flex justify-end items-center xxsm:w-[40%] xsm:w-[40%]  sm:w-[35%] md:justify-end lg:justify-end xl:justify-end 2xl:justify-end 3xl:justify-end 4xl:justify-end 5xl:justify-end 6xl:justify-end ">
