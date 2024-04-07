@@ -61,7 +61,7 @@ import useScreenWith from "../utils/useWithSize"
     { !ShowSideBar ? " ":
     <div className="absolute  bg-black bg-opacity-80 h-[100%] w-screen z-50 ">
       <ul className="  p-1 pt-5  bg-black flex flex-col h-full w-[15rem] text-white  text-[1.2rem] xxsm:w-[10.5rem] text-[0.9rem]  xsm:text-[0.9rem] w-[10.5rem] sm:text-[0.9rem] lg:w-[18rem] xl:w-[22rem]">
-      <button className=" pr-1 text-red-600 text-[1.4rem] border text-right xxsm:text-[1.1rem] xsm:text-[1.2rem]sm:text-[1.2rem] cursor-pointer outline-none" onClick={()=>setShowSideBar(!ShowSideBar)}><i className="fa-solid fa-xmark"></i></button>
+      <button className=" pr-1 text-red-600 text-[1.4rem]  text-right xxsm:text-[1.1rem] xsm:text-[1.2rem]sm:text-[1.2rem] cursor-pointer outline-none" onClick={()=>setShowSideBar(!ShowSideBar)}><i className="fa-solid fa-xmark"></i></button>
       <li className="text-red-600 ml-[0.5rem] text-[1.6rem] font-bold tracking-wider xxsm:text-[1rem] xsm:text-[1.1rem] sm:text-[1.2rem] ">CHALCHITRA</li>
  <Link to={"/browse"}><li className="cursor-pointer  p-1 m-1 hover:text-slate-500">Home</li></Link>
   <Link to={"/Tv"}><li className=" cursor-pointer  p-1 m-1 hover:text-slate-500">TV</li></Link>

@@ -28,12 +28,10 @@ const getData = async ()=>{
 
 let sectionStyle = {
     width: "100%",
-    // height: "400px",
     backgroundImage: `url(${netflixCover})`,
     backgroundRepeat:" no-repeat",
     backgroundSize: "cover",
   };
-// backgroundImage: `url(${Background})`
 if(!Movie_dataBySearch) return null
     return(<div className="h-[100vh] flex justify-center items-center"  style={sectionStyle}>
                     {/* <img alt="Cover" src={netflixCover} className="w-screen xxsm:h-[100vh] w xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl:" ></img> */}

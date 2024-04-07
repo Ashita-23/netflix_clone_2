@@ -12,7 +12,7 @@ const TvSeries = ()=>{
     const [MTrailerKey,setMTrailerKey]=useState()
     // console.log(MTrailerKey,"MT key")
     const [Tvdetails,setTvdetails] = useState()
-    console.log(Tvdetails,"TvDeatails")
+    // console.log(Tvdetails,"TvDeatails")
     const [ShowSuggetion,setShowSuggetions]=useState(false)
     // console.log( Series_Id[0]," SeriesId")
 const dispatch = useDispatch()
@@ -34,8 +34,7 @@ const dispatch = useDispatch()
         setTvdetails(Json)
  
      }
-// 'https://api.themoviedb.org/3/tv/81329?language=en-US'
-     return(<div className="   w-[26rem] xxsm:w-[100%] xsm:w-[20rem] sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
+     return(<div className=" w-[26rem] xxsm:w-[100%] xsm:w-[20rem] sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
     <div className=" ">
     <div className=" flex justify-center  border-b-[0.1rem] border-slate-700 w-full h-[12rem] "> 
        {MTrailerKey ? <SeriesCard data={MTrailerKey}/>:<div className="w-[100%] bg-black flex justify-center items-center">

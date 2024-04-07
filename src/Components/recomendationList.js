@@ -11,9 +11,9 @@ const My_Watch_List = ()=>{
     const my_TvListId = useSelector((store)=>store.My_List_id_Data.TvlistId)
     const TvListdata = useSelector((store)=>store.My_List_Data.Tvs_List_data)
     const MovieListdata = useSelector((store)=>store.My_List_Data.Movies_List_data)
-//     console.log(my_MovieListId,"my_MovieListId")
-//     console.log(my_TvListId,"my_TvListId")
-//     console.log(MovieListdata,"MovieListdata")
+    // console.log(my_MovieListId,"my_MovieListId")
+    // console.log(my_TvListId,"my_TvListId")
+    // console.log(MovieListdata,"MovieListdata")
 // console.log(TvListdata,"TvlistDAta")
 
 
@@ -63,7 +63,7 @@ useEffect(()=>{
 
 const getCallMidArray = async () => {
     try{
-    const callMidApi= my_MovieListId&&my_MovieListId?.map((data)=>MoviesRecomendation(data.id)) 
+    const callMidApi= my_MovieListId?.map((data)=>MoviesRecomendation(data.id)) 
     const resultsArray = await Promise.all(callMidApi)
     const filterDataItem = resultsArray.filter((data)=>data?.results?.length>0)
    dispatch(AddMoviesListData(filterDataItem))}catch(e){
@@ -73,7 +73,7 @@ const getCallMidArray = async () => {
 
 const getCallTidArray = async () => {
     try{
-    const callTidApi= my_TvListId&&my_TvListId?.map((data)=>TvSeriesRecomendation(data.id)) 
+    const callTidApi= my_TvListId?.map((data)=>TvSeriesRecomendation(data.id)) 
     const resultsArray = await Promise.all(callTidApi)
     const filterDataItem = resultsArray.filter((data)=>data?.results?.length>0)
     dispatch(AddTvsListData(filterDataItem))  }catch(e){

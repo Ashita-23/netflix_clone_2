@@ -23,22 +23,25 @@ const BackdropCard = ()=>{
     //         },[])
 
     const [TrailerKey,setTrailerKey]=useState()
-    // console.log(TrailerKey,"Tkey")
+    console.log(TrailerKey,"Tkey")
     const getData= async()=>{
         try{
         const ApiLink="https://api.themoviedb.org/3/movie/"+nowPlayingApi?.results[0]?.id+"/videos?language=en-US"
         const Api = await fetch(ApiLink, options)
         const Json = await Api.json()
+        console.log(Json,"backdrop jason...")
         const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-        const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
+        console.log(FilterTrailer,"Filter Trailer")
+        console.log( FilterTrailer.length," FilterTrailer.length")
+        const Trailer = FilterTrailer.length !== 0  ? FilterTrailer[0] : Json?.results[0]
         // console.log(Trailer,"trailer")
         setTrailerKey(Trailer.key)}catch(e){console.log(e)}
   
 
     }
     useEffect(()=>{getData()},[])
+
     if(!nowPlayingApi) return <p>please wait................</p>
-   
     return(<div className="h-[auto]">
    {!TrailerKey ? <IframeShimmer/>: <iframe className=" w-screen aspect-video " src={"https://www.youtube.com/embed/"+TrailerKey+"?&autoplay=1&mute=1&loop=1" }
     title="YouTube video player"    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

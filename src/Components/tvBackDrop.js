@@ -14,7 +14,7 @@ const TvBackdropCard = ()=>{
         const Json = await Api.json()
         // console.log(Json,"Json")
         const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-        const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
+        const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0] : Json?.results[0]
         // console.log(Trailer,"Trailer")
         setTrailerKey(Trailer?.key)}catch(e){console.log(e)}
     }

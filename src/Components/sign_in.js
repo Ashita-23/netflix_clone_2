@@ -71,7 +71,6 @@ const SignIn = () => {
 
     let sectionStyle = {
       width: "100%",
-      // height: "400px",
       backgroundImage: `url(${netflixCover})`,
       backgroundRepeat:" no-repeat",
       backgroundSize: "cover",
@@ -85,10 +84,6 @@ const SignIn = () => {
          <button  className="text-white bg-slate-400 px-4 py-1 rounded-md xxsm:text-[0.9rem]" onClick={()=>dispatch(AddSignIn(true))}>{IsIN_UP?" Sign in":"Sign up"}</button> 
          </nav>  
          <div className="h-[100vh] flex flex-col justify-center items-center"  style={sectionStyle}>
-            {/* <img src={netflixCover}  alt="background image" className="w-screen xxsm:h-[50vh] xsm:h-[60vh] sm:h-[60vh] md:h-[70vh] lg:w-screen  xl:w-screen 2xl:w-screen 3xl:w-screen 4xl:w-screen 5xl:w-screen  6xl:w-screen   "/> */}
-            {/* <div className="flex flex-col justify-center items-center w-[100%]   mt-[-40%] ml-[0]   absolute py-[0.5rem] px-[1.5rem]
-            xxsm:-mt-[22.2rem] ml-[0] xsm:-mt-[25rem] ml-0 sm:-mt-[25rem]  md:-mt-[26rem]  lg:-mt-[30rem] xl:-mt-[35rem]  2xl:ml-0 3xl:ml-0">  */}
-            {/* <h1>Unlimited movies, TV shows and more</h1> */} 
                {  IsIN_UP ? <form onSubmit={(e)=>e.preventDefault()} className="  w-[25rem] px-[1.5rem] pt-4  bg-black  bg-opacity-90 flex flex-col justify-evenly item-center 
                xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[22rem] 3xl:w-[22rem] 4xl:w-[22rem] 5xl:w-[22rem] 6xl:w-[22rem] ">
                    <p className="text-2xl font-bold text-white my-2  xxsm:text-lg">Sign Up</p>

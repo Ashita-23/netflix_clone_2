@@ -13,7 +13,7 @@ import dummyImg from "../assets/noData.png"
     </div>
     </div>)
 }
-// 'https://api.themoviedb.org/3/movie/23739?language=en-US'
+
 export default SuggestionCards
 
 
