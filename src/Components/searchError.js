@@ -7,5 +7,4 @@ import searchErrorimg from "../assets/sreactError.png"
     </div>)
 }
 
-
 export default SearchErrorCards

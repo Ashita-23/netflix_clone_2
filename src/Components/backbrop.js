@@ -31,15 +31,15 @@ const BackdropCard = ()=>{
         const Json = await Api.json()
         console.log(Json,"backdrop jason...")
         const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
-        console.log(FilterTrailer,"Filter Trailer")
-        console.log( FilterTrailer.length," FilterTrailer.length")
+        // console.log(FilterTrailer,"Filter Trailer")
+        // console.log( FilterTrailer.length," FilterTrailer.length")
         const Trailer = FilterTrailer.length !== 0  ? FilterTrailer[0] : Json?.results[0]
         // console.log(Trailer,"trailer")
         setTrailerKey(Trailer.key)}catch(e){console.log(e)}
   
 
     }
-    useEffect(()=>{getData()},[])
+    useEffect(()=>{getData()},[nowPlayingApi ])
 
     if(!nowPlayingApi) return <p>please wait................</p>
     return(<div className="h-[auto]">

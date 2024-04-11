@@ -93,8 +93,8 @@ const SignIn = () => {
                     <p className="text-[0.8rem] text-red-500 p-1 m-1">{VSU_Message}</p>
                     <button className="text-md bg-red-600 text-white rounded-md p-2 my-2  xxsm:text-sm" onClick={()=>SignUpHandler()}>Sign Up Now</button>
                 </form>:
-                <form  onSubmit={(e)=>e.preventDefault()}  className="w-[25rem] px-[1.5rem] py-2  bg-black  bg-opacity-90  flex flex-col justify-evenly item-center 
-               xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] lx:w-[20rem] 2xl:w-[22rem] 3xl:w-[22rem] 4xl:w-[22rem] 5xl:w-[22rem] 6xl:w-[22rem] ">
+                <form  onSubmit={(e)=>e.preventDefault()} className="  w-[25rem] px-[1.5rem] pt-4  bg-black  bg-opacity-90 flex flex-col justify-evenly item-center 
+               xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[22rem] 3xl:w-[22rem] 4xl:w-[22rem] 5xl:w-[22rem] 6xl:w-[22rem] ">
                   <p className="text-2xl font-bold text-white my-2">Sign In</p>
                     <input type="email" ref={INemail} placeholder="Enter Your Email.." className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
                     <input  type="password" autoComplete="on" ref={INpassword} placeholder="Enter Your Password" className="text-md rounded-md p-2 my-2 bg-slate-800 text-white outline-none"/>
@@ -105,7 +105,7 @@ const SignIn = () => {
 {  IsIN_UP   ? <div className="text-white  px-6 pb-4 text-left w-[25rem] bg-black  bg-opacity-90 
  xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[22rem] 3xl:w-[22rem] 4xl:w-[22rem] 5xl:w-[22rem] 6xl:w-[22rem]"><span className="text-sm">Already registered? </span>
             <button className="text-red-500 text-sm" onClick={()=>{dispatch(AddSignIn(false)) }}> Sign In Now.</button></div>:
-            <div className="text-white  px-6 pb-2 text-left w-[25rem] bg-black
+            <div className="text-white  px-6 pb-2 text-left w-[25rem] bg-black  bg-opacity-90 
  xxsm:w-[100%] px-1 xsm:w-[20rem] sm:w-[20rem] md:w-[20rem] lg:w-[20rem] xl:w-[20rem] 2xl:w-[22rem] 3xl:w-[22rem] 4xl:w-[22rem] 5xl:w-[22rem] 6xl:w-[22rem]"><span className="text-sm">If you are not registered? </span>
             <button className="text-red-500 text-sm" onClick={()=>dispatch(AddSignIn(true))}> Sign Up Now.</button></div>
       }

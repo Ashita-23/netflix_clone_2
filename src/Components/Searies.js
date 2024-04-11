@@ -9,15 +9,15 @@ import EmptySuggestionImg from "../assets/suggestion.png"
 const TvSeries = ()=>{
     const Series_Id = useSelector((store)=>store.Series_Id.id)
     // console.log(Series_Id[0].id,"S id")
-    const [MTrailerKey,setMTrailerKey]=useState()
-    // console.log(MTrailerKey,"MT key")
+    const [TvTrailerKey,setTvTrailerKey]=useState()
+    // console.log(TvrailerKey,"Tv key")
     const [Tvdetails,setTvdetails] = useState()
     // console.log(Tvdetails,"TvDeatails")
     const [ShowSuggetion,setShowSuggetions]=useState(false)
     // console.log( Series_Id[0]," SeriesId")
 const dispatch = useDispatch()
     useEffect(()=>{getData()
-        getDitails()},[])
+        getDetails()},[])
     const getData= async()=>{
         const ApiLink="https://api.themoviedb.org/3/tv/"+ Series_Id[0]?.id+"/videos?language=en-US"
         const Api = await fetch(ApiLink, options)
@@ -25,10 +25,10 @@ const dispatch = useDispatch()
         const FilterTrailer = Json?.results?.filter((data)=> data.type === "Trailer")
         const Trailer = FilterTrailer.length !==0  ? FilterTrailer[0]:Json?.results[0]
         if(Trailer===undefined) return
-        setMTrailerKey(Trailer.key)
+        setTvTrailerKey(Trailer.key)
     }
 
-    const getDitails = async()=>{
+    const getDetails = async()=>{
         const ApiText = await fetch("https://api.themoviedb.org/3/tv/"+ Series_Id[0]?.id+"?language=en-US",options)
         const Json = await ApiText.json()
         setTvdetails(Json)
@@ -37,7 +37,7 @@ const dispatch = useDispatch()
      return(<div className=" w-[26rem] xxsm:w-[100%] xsm:w-[20rem] sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
     <div className=" ">
     <div className=" flex justify-center  border-b-[0.1rem] border-slate-700 w-full h-[12rem] "> 
-       {MTrailerKey ? <SeriesCard data={MTrailerKey}/>:<div className="w-[100%] bg-black flex justify-center items-center">
+       {TvTrailerKey ? <SeriesCard data={TvTrailerKey}/>:<div className="w-[100%] bg-black flex justify-center items-center">
         <p className="text-white text-xl  ">trailer is not ready</p></div>}
     </div>
     <div className=" text-gray-400  bg-black flex flex-col justify-center  p-2">
@@ -49,7 +49,7 @@ const dispatch = useDispatch()
 </div>
    <div className="flex justify-between">
         <button className="   text-white text-xl mx-1 cursor-pointer rounded-sm hover:  " ><i className="fa-solid fa-play"></i></button>
-{ MTrailerKey?<button className=" text-white text-xl mx-1 cursor-pointer rounded-sm " onClick={()=>setShowSuggetions(!ShowSuggetion)}>
+{ TvTrailerKey?<button className=" text-white text-xl mx-1 cursor-pointer rounded-sm " onClick={()=>setShowSuggetions(!ShowSuggetion)}>
 {ShowSuggetion?<i className="fa-solid fa-circle-chevron-up text-red-600 "></i>:<i className="fa-solid fa-circle-chevron-down"></i>}</button>:""}</div>
         </div> 
         </div>

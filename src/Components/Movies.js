@@ -17,7 +17,7 @@ const dispatch = useDispatch()
 
     useEffect(()=>{
         getData()
-        getDitails()
+        getDetails()
     },[MovieId ])
     const getData= async()=>{
         const ApiLink="https://api.themoviedb.org/3/movie/"+ MovieId[0]?.id+"/videos?language=en-US"
@@ -31,7 +31,7 @@ const dispatch = useDispatch()
     
     }
 
-    const getDitails = async()=>{
+    const getDetails = async()=>{
        const ApiText = await fetch("https://api.themoviedb.org/3/movie/"+ MovieId[0]?.id+"?language=en-US",options)
        const Json = await ApiText.json()
        setMdetails(Json)

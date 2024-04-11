@@ -12,14 +12,12 @@ const TvSearchPage = ()=>{
 const searchText = useRef()
 
 const [search,setSearch]=useState()
-console.log(search,"stext")
+// console.log(search,"stext")
 const [Movie_dataBySearch,setMovie_dataBySearch]=useState()
 
  useEffect(()=>{
     getData()
 },[search])
-
-// 'https://api.themoviedb.org/3/search/tv?query=good&include_adult=false&language=en-US&page=1''
 
 const getData = async ()=>{
     const Api = await fetch("https://api.themoviedb.org/3/search/tv?query="+search+"&include_adult=false&language=en-US&page=1",options)
@@ -29,7 +27,6 @@ const getData = async ()=>{
 }
 let sectionStyle = {
     width: "100%",
-    // height: "400px",
     backgroundImage: `url(${netflixCover})`,
     backgroundRepeat:" no-repeat",
     backgroundSize: "cover",

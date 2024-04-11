@@ -55,7 +55,7 @@ useEffect(()=>{
     !TvListdata && getCallTidArray()
    }
  
-},[])
+},[ MovieListdata,TvListdata])
 useEffect(()=>{
 
 },[])
