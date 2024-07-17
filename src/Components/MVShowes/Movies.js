@@ -63,7 +63,7 @@ const Movies = ()=>{
     </div>
     </div>
         </div>
-        <div className="pt-6 px-3 flex flex-col justify-between  bg-black">
+        <div className="pt-8 px-3 flex flex-col justify-between  bg-black">
            <p className="text-white text-sm xxsm:text-[0.7rem] xsm:text-[0.8rem] sm:text-[0.9rem]">{Mdetails?.overview}</p>
        <div className="flex xxsm:text-[0.7rem]">{Mdetails?.genres?.map((genres)=><span className="mr-1 text-white">{genres?.name} |</span>)}</div>
        <div className="flex xxsm:text-[0.7rem] my-[0.2rem]">

@@ -50,9 +50,9 @@ const Browse = ()=>{
                     }}
                  
     return( <>
- <div className=" h-[auto] w-[full] relative border" >
+ <div className=" h-[auto] w-[full] relative  bg-black" >
     <BackdropCard keyData={Math.random()*"2a"} />
-    <div className="py-1 absolute mt-[-11%] w-[99.5%]">
+    <div className="py-1  mt-[-11%] w-[99.5%]">
            <NowPlayingCards  NowData={nowPlayingApi?.results} titleText={videoCardsTitle[0]} key={nowPlayingApi?.results?.id}></NowPlayingCards>
                </div> 
      

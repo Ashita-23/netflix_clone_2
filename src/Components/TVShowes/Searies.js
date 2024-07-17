@@ -9,11 +9,11 @@ import EmptySuggestionImg from "../../assets/suggestion.png"
 
 const TvSeries = ()=>{
     const Series_Id = useSelector((store)=>store.Series_Id.id)
-    console.log(Series_Id[0],"S id")
+    // console.log(Series_Id[0],"S id")
     const [TvTrailerKey,setTvTrailerKey]=useState()
-    console.log(TvTrailerKey,"Tv key")
+    // console.log(TvTrailerKey,"Tv key")
     const [Tvdetails,setTvdetails] = useState()
-    console.log(Tvdetails,"TvDeatails")
+    // console.log(Tvdetails,"TvDeatails")
 
     // const [ShowSuggetion,setShowSuggetions]=useState(false)
 
@@ -43,7 +43,7 @@ const TvSeries = ()=>{
          }
  
      }
-     return(<div className=" w-[100%] xxsm: xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
+     return(<div className=" w-[100%] h-[auto] pb-2 xxsm: xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
     <div className=" ">
     <div className=" flex justify-center  border-b-[0.1rem] border-slate-700 w-full h-[auto] relative"> 
        {TvTrailerKey ? <SeriesCard data={TvTrailerKey}/>:<div className="w-[100%] bg-black flex justify-center items-center">

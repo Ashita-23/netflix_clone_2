@@ -27,7 +27,7 @@ export const CardsImgShimmer = ()=>{
 
 
 export const IframeShimmer = ()=>{
-  return( <div className="w-screen h-[60%] p-[2rem] bg-black flex justify-center items-center">
+  return( <div className="w-screen aspect-video p-[2rem]  bg-black flex justify-center items-center">
     <img src={VideoNotFoundGif} alt="video not found img" className="xxsm:w-[14rem] xsm:w-[14rem] sm:w-[14rem] md:w-[16rem] lg:w-[16rem] xl:w-[18rem] 2xl:w-[19rem] 3xl:w-[20rem] 4xl:w-[21rem] 5xl:w-[22rem] 6xl:w-[23rem]"/>
     </div>)
 }

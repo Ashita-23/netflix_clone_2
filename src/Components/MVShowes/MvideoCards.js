@@ -20,11 +20,11 @@ const NowPlayingCards =({NowData,titleText})=>{
       
     }
   
-
+// / 
     return(<div className="p-2 relative "  >
        <h1 className="text-2xl font-semibold p-2 text-white xxsm:text-sm xsm:text-sm sm:text-md md:text-lg " key={titleText?.key} >{titleText?.titleText} </h1>
-         <div className="flex overflow-scroll no-scrollbar p-1  ">
-         {!NowData ? <CardsImgShimmer />: NowData?.map((data)=>{return(<Link to={"/mvWatchpage"} className="mx-1"><img src={POSTER_API+data?.poster_path} alt="poster" className="w-[160px] mx-2  xxsm:w-[100px]  xsm:w-[100px] sm:w-[120px] md:w-[130px] lg:w-[140px] xl:w-[150px]" key={data?.vote_count} 
+         <div className=" w-[99.5vw] h-[auto] overflow-scroll no-scrollbar p-1  flex ">
+         {!NowData ? <CardsImgShimmer />: NowData?.map((data)=>{return(<Link to={"/mvWatchpage"} className="mx-[0.3rem] flex-shrink-0 "  ><img src={POSTER_API+data?.poster_path} alt="poster" className="w-[150px] mx-2  xxsm:w-[90px]  xsm:w-[90px] sm:w-[100px] md:w-[120px] lg:w-[130px] xl:w-[140px]" key={data?.vote_count} 
          onClick={()=> MoviesCardHandler(data)}></img></Link>)})}
          </div>
         </div> 

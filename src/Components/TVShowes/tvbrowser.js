@@ -69,16 +69,18 @@ dispatch(addToTvTopSeriesRated(Json))
   console.log(e)
 }}
     return(<>
-  <div className=" h-[auto] w-[full] " >
+ <div className=" h-[auto] w-[full] relative  bg-black" >
   <TvBackdropCard  />
-    <div className="py-1 absolute mt-[-11%] w-[99.5%]">
+   {/* <div className="border  h-[50vh] relative"> */}
+   <div className="py-1  mt-[-11%] w-[99.5%]">
                 <TvSeriesCards  NowData={ TV_Series?.results} titleText={TvCardsTitle[0]} key={TV_Series?.results?.id} ></TvSeriesCards> 
                </div> 
-  <div className=" bg-black mt-[0]  ">
+               <div className=" bg-black mt-[0] pt-[2rem] ">
                 <TvSeriesCards  NowData={TV_SeriesPopular?.results} titleText={TvCardsTitle[1]} key={TV_SeriesPopular?.results?.id} ></TvSeriesCards>
                <TvSeriesCards  NowData={TV_SeriesOnAir?.results} titleText={TvCardsTitle[2]} key={TV_SeriesOnAir?.results?.id}></TvSeriesCards>
-               {/* <TvSeriesCards  NowData={TV_SeriesTop_rated?.results} titleText={TvCardsTitle[3]} key={TV_SeriesTop_rated?.results?.id}></TvSeriesCards> */}
-    </div>  
+               <TvSeriesCards  NowData={TV_SeriesTop_rated?.results} titleText={TvCardsTitle[3]} key={TV_SeriesTop_rated?.results?.id}></TvSeriesCards>
+    {/* </div>   */}
+  </div> 
   </div>
 
     </>)
