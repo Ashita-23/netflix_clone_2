@@ -47,10 +47,9 @@ import useScreenWith from "../utils/useWithSize"
     <span className="text-red-600 text-[1.9rem] text-center ml-[0.5rem]  font-bold tracking-wider xxsm:text-[1rem] xsm:text-[1.1rem] sm:text-[1.2rem]  ">CHALCHITRA</span>
     </div>
     <div className="w-4/12 flex justify-end items-center xxsm:w-[40%] xsm:w-[40%]  sm:w-[35%] md:justify-end lg:justify-end xl:justify-end 2xl:justify-end 3xl:justify-end 4xl:justify-end 5xl:justify-end 6xl:justify-end ">
-   {
-    Location.pathname!=="/watchlist" ? <div >{IsTVCard?<button className="text-red-600 px-[0.1rem] py-[0.2rem] rounded-md cursor-pointer text-xl xxsm:text-[1rem] xsm:text-[1.1rem]  " onClick={()=>dispatch( AddShowTvCard(false))} ><i className="fa-solid fa-magnifying-glass"></i></button>:
-    <button className="text-red-600 px-[0.1rem] py-[0.2rem] rounded-md cursor-pointer text-xl xxsm:text-[1rem] xsm:text-[1.1rem] " onClick={()=>dispatch( AddShowTvCard(true))} ><i className="fa-solid fa-tv"></i></button>} </div>:" "
-   }
+  <div >{IsTVCard?<button className="text-red-600 px-[0.1rem] py-[0.2rem] rounded-md cursor-pointer text-xl xxsm:text-[1rem] xsm:text-[1.1rem]  " onClick={()=>dispatch( AddShowTvCard(false))} ><i className="fa-solid fa-magnifying-glass"></i></button>:
+    <button className="text-red-600 px-[0.1rem] py-[0.2rem] rounded-md cursor-pointer text-xl xxsm:text-[1rem] xsm:text-[1.1rem] " onClick={()=>dispatch( AddShowTvCard(true))} ><i className="fa-solid fa-tv"></i></button>} </div>
+
     {/* <div className="border border-green-400 ml-1 flex items-center justify-center xxsm: xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: "> */}
     <button  className="text-white  px-[0.5rem] py-[0.2rem] mx-[0.2rem] rounded-md cursor-pointer text-xl xxsm:text-[1.1rem] xsm:text-[1.1rem]" onClick={()=>SignOutHandler()}> <i className="fa-solid fa-right-from-bracket"></i></button>
      <p className="p-1  text-red-600 text-xl  " ><i className="fa-solid fa-user-astronaut"></i></p>
@@ -59,7 +58,7 @@ import useScreenWith from "../utils/useWithSize"
     </nav>
     
     { !ShowSideBar ? " ":
-    <div className="absolute  bg-black bg-opacity-80 h-[100%] w-screen z-50 ">
+    <div className="absolute  bg-black bg-opacity-80 h-[] w-screen z-50 ">
       <ul className="  p-1 pt-5  bg-black flex flex-col h-full w-[15rem] text-white  text-[1.2rem] xxsm:w-[10.5rem] text-[0.9rem]  xsm:text-[0.9rem] w-[10.5rem] sm:text-[0.9rem] lg:w-[18rem] xl:w-[22rem]">
       <button className=" pr-1 text-red-600 text-[1.4rem]  text-right xxsm:text-[1.1rem] xsm:text-[1.2rem]sm:text-[1.2rem] cursor-pointer outline-none" onClick={()=>setShowSideBar(!ShowSideBar)}><i className="fa-solid fa-xmark"></i></button>
       <li className="text-red-600 ml-[0.5rem] text-[1.6rem] font-bold tracking-wider xxsm:text-[1rem] xsm:text-[1.1rem] sm:text-[1.2rem] ">CHALCHITRA</li>
@@ -77,7 +76,7 @@ export const BigNav = ()=>{
   const dispatch = useDispatch()
   const IsTVCard = useSelector((store)=>store.Tv_SearchToggle.IsTVCard)
 // console.log(IsTVCard)
-const Location= useLocation()
+// const Location= useLocation()
   const navigate=useNavigate()
   
   const SignOutHandler = ()=>{
@@ -114,10 +113,9 @@ const Location= useLocation()
   <Link to={"/watchlist"}  ><li className="cursor-pointer  p-1 m-1 hover:text-slate-500" >List</li></Link>
  </ul></div>
  <div className=" w-4/12 flex justify-center items-center xxsm: xsm: sm:w-[35%] md:justify-end lg:justify-end xl:justify-end 2xl:justify-end 3xl:justify-end 4xl:justify-end 5xl:justify-end 6xl:justify-end ">
- {
-  Location.pathname!=="/watchlist" ? <div>{IsTVCard?<button className="text-white bg-red-600 px-4 py-1 rounded-md cursor-pointer xxsm: xsm: sm:text-[0.9rem] md:text-[0.9rem] lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: " onClick={()=>dispatch( AddShowTvCard(false))} >Search</button>:
-  <button className="text-white bg-red-600 px-4 py-1 rounded-md cursor-pointer xxsm: xsm: sm:text-[0.9rem] md:text-[0.9rem] lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: " onClick={()=>dispatch( AddShowTvCard(true))} >Tv Series</button>} </div>:" "
- }
+ <div>{IsTVCard?<button className="text-white bg-red-600 px-4 py-1 rounded-md cursor-pointer xxsm: xsm: sm:text-[0.9rem] md:text-[0.9rem] lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: " onClick={()=>dispatch( AddShowTvCard(false))} >Search</button>:
+  <button className="text-white bg-red-600 px-4 py-1 rounded-md cursor-pointer xxsm: xsm: sm:text-[0.9rem] md:text-[0.9rem] lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: " onClick={()=>dispatch( AddShowTvCard(true))} >Tv Series</button>} </div>
+
   <div className=" ml-1 flex items-center justify-center xxsm: xsm: sm: md: lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: ">
   <button  className="text-white bg-slate-400 px-4 py-1 rounded-md cursor-pointer xxsm: xsm: sm:text-[0.9rem] md:text-[0.9rem] lg: xl: 2xl: 3xl: 4xl: 5xl: 6xl: " onClick={()=>SignOutHandler()}> Sign out</button>
    <p className="p-1  text-red-500 text-2xl mx-1 " ><i className="fa-solid fa-user-astronaut"></i></p>

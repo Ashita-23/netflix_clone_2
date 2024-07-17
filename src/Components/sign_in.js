@@ -1,5 +1,5 @@
-import FooterCards from "./footerCards"
-import FooterQues from "./footerQues"
+import FooterCards from "./Footers/footerCards"
+import FooterQues from "./Footers/footerQues"
 import netflixCover from "../assets/netflixCover.jpeg"
 import { useSelector,useDispatch } from "react-redux"
 import { AddSignIn } from "../RStore/formToggle"

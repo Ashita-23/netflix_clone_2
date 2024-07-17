@@ -1,5 +1,6 @@
 import { videoCardsTitle}from "../../utils/hardCodedData"
 import Loading_img from "../../assets/Progressimg.png"
+import VideoNotFoundGif from "../../assets/Questions.png"
 
 
 const Mt_ShimmerCards = ()=>{
@@ -26,7 +27,7 @@ export const CardsImgShimmer = ()=>{
 
 
 export const IframeShimmer = ()=>{
-  return(<div className="border border-slate-800">
-      <div className="w-screen aspect-video bg-slate-900 animate-pulse" ></div>
-  </div>)
+  return( <div className="w-screen h-[60%] p-[2rem] bg-black flex justify-center items-center">
+    <img src={VideoNotFoundGif} alt="video not found img" className="xxsm:w-[14rem] xsm:w-[14rem] sm:w-[14rem] md:w-[16rem] lg:w-[16rem] xl:w-[18rem] 2xl:w-[19rem] 3xl:w-[20rem] 4xl:w-[21rem] 5xl:w-[22rem] 6xl:w-[23rem]"/>
+    </div>)
 }

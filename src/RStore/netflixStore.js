@@ -9,6 +9,7 @@ import TvSearchToggle from "./tvSearchToggle";
 import SeriesId from "./seriesId"
 import My_List_id_Data from "./myList";
 import MY_LIST_DATA from "./mylistData";
+import WatchPagedata  from "./watchPageData";
 
 
 const NetFlixStore = configureStore({
@@ -23,6 +24,7 @@ Tv_SearchToggle:TvSearchToggle,
 Series_Id:SeriesId,
 My_List_id_Data:My_List_id_Data,
 My_List_Data:MY_LIST_DATA,
+Watch_Page_data : WatchPagedata ,
     }
 })
 

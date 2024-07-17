@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const netflixCardsData = createSlice({
-    name:"Movies Cards Data",
+    name:"Movies and Tv Cards Data",
     initialState:{
         MoviesPlayingData:null,
         MoviesTopRatedData:null,

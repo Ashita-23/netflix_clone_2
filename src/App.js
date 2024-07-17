@@ -1,16 +1,19 @@
 import './App.css';
 import {  RouterProvider, createBrowserRouter} from 'react-router-dom';
 import SignIn from './Components/sign_in';
-import BrowseComponent from './BrowseComponents';
+import BrowseComponent from './finalComponents/BrowseComponents';
 import { lazy , Suspense} from 'react';
+// import Tv_WatchPage from './Components/WatchPage/TVwatchPages';
 
 
 
 
 function App() {
 
- const TvComponets = lazy(()=>import('./TvComponents'));
- const Watch_List = lazy(()=>import('./watch_List'));
+ const TvComponets = lazy(()=>import('./finalComponents/TvComponents'));
+ const Watch_List = lazy(()=>import('./finalComponents/watch_List'));
+ const Watch_Page_For_Movies  = lazy(()=>import("./finalComponents/WatchPageForMovies"));
+ const Watch_Page_For_Tvs  = lazy(()=>import('./finalComponents/WatchPageForTv'));
 
 const AppRouter = createBrowserRouter([
   {path:"/",
@@ -26,6 +29,14 @@ const AppRouter = createBrowserRouter([
    {
     path:"/watchlist",
     element:<Suspense fallback={""}><Watch_List/></Suspense>
+   },
+   {
+    path:"/mvWatchpage",
+    element:<Suspense fallback={""}><Watch_Page_For_Movies /></Suspense>
+   },
+   {
+    path:"/tvWatchpage",
+    element:<Suspense fallback={""}><Watch_Page_For_Tvs /></Suspense>
    }
 ])
 
